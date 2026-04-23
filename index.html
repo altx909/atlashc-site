@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Furnace Repair, AC & Plumbing Saskatoon | Same-Day Service | AtlasHC</title>
+  <title>AtlasHC | Furnace Repair, AC & Plumbing Saskatoon | Same-Day Service</title>
   <meta name="description" content="Saskatoon's fastest-growing HVAC company. Same-day furnace repair, AC, plumbing & water heater service. Licensed local experts. 5★ rated. Call (306) 801-5053.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://atlashc.ca/">
@@ -58,7 +58,7 @@
       gap: 1rem;
     }
     .logo img {
-      height: 64px;
+      height: 80px;
       width: auto;
     }
     .nav-menu {
@@ -124,7 +124,7 @@
       .nav-menu.active { left: 0; }
       .nav-links { flex-direction: column; gap: 1.2rem; width: 100%; }
       .hamburger { display: block; }
-      .logo img { height: 56px; }
+      .logo img { height: 72px; }
     }
 
     /* ===== HERO ===== */
@@ -224,7 +224,6 @@
       margin-bottom: 1.6rem;
     }
     .hero h1 {
-      word-break: normal;
       font-family: 'Familjen Grotesk', sans-serif;
       font-size: clamp(2.8rem, 8vw, 3.8rem);
       font-weight: 700;
@@ -604,7 +603,6 @@
       display: block;
       height: 100%;
     }
-    
     .work-caption {
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -853,19 +851,38 @@
     .hero-inner > *:nth-child(4) { animation-delay: 0.35s; }
     .hero-inner > *:nth-child(5) { animation-delay: 0.45s; }
 
-    @media (max-width: 860px) {
+    /* 📱 MOBILE FIXES */
+    @media (max-width: 640px) {
       .local-layout { grid-template-columns: 1fr; gap: 2.5rem; }
       .local-photo-frame { max-height: 280px; }
       .local-photo-overlay { right: 0; bottom: -12px; }
       .hero-photo, .hero-stripe { display: none; }
       .hero { background: #faf9f7; }
       .hero-inner { padding: 2.8rem 0 2.5rem; }
-      .hero h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); }
+      .hero h1 { font-size: clamp(2.4rem, 12vw, 3.8rem) !important; }
       .section { padding: 3.2rem 0; }
-      .trust-item + .trust-item { border-left: none; }
-      .trust-bar-inner { justify-content: flex-start; }
-      .trust-item { padding: 0.4rem 0.8rem; font-size: 0.78rem; }
+      .trust-item + .trust-item { border-left: 1px solid rgba(255,255,255,0.1); }
+      .trust-bar-inner {
+        justify-content: flex-start;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+      }
+      .trust-item { padding: 0.4rem 0.8rem; font-size: 0.78rem; flex-shrink: 0 !important; white-space: nowrap; }
       .stat-row { gap: 1.2rem; }
+      .quick-services {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        gap: 0.6rem;
+        padding-bottom: 0.3rem;
+      }
+      .qs-btn { flex-shrink: 0 !important; white-space: nowrap; }
+      .hero-rating { margin-left: 0 !important; }
+    }
+
+    @media (max-width: 480px) {
+      .logo img { height: 72px !important; }
     }
   </style>
 </head>
@@ -1007,45 +1024,29 @@
     <p class="section-sub">Actual installs and repairs from our team — not stock photos. Drop in your own.</p>
     <div class="work-grid">
       <a href="/furnace-installation-saskatoon" class="work-link">
-  <div class="work-card">
-    <img src="/public/images/jobs/lennox-furnace-install-saskatoon.webp" 
-         alt="Lennox furnace installation Saskatoon">
-    <div class="work-caption">
-      <span class="work-caption-tag">Heating</span>
-      Lennox Furnace Install
-    </div>
-  </div>
-</a>
+        <div class="work-card">
+          <img src="/public/images/jobs/lennox-furnace-install-saskatoon.webp" alt="Lennox furnace installation Saskatoon">
+          <div class="work-caption"><span class="work-caption-tag">Heating</span>Lennox Furnace Install</div>
+        </div>
+      </a>
       <a href="/ac-repair-saskatoon" class="work-link">
-  <div class="work-card">
-    <img src="public/images/jobs/ac-repair-river-heights-saskatoon.webp" 
-         alt="AC repair in River Heights Saskatoon">
-    <div class="work-caption">
-      <span class="work-caption-tag">Cooling</span>
-      AC Repair — River Heights
-    </div>
-  </div>
-</a>
+        <div class="work-card">
+          <img src="/public/images/jobs/ac-repair-river-heights-saskatoon.webp" alt="AC repair in River Heights Saskatoon">
+          <div class="work-caption"><span class="work-caption-tag">Cooling</span>AC Repair — River Heights</div>
+        </div>
+      </a>
       <a href="/tankless-water-heater-installation-saskatoon" class="work-link">
-  <div class="work-card">
-    <img src="/public/images/jobs/tankless-water-heater-nutana.webp" 
-         alt="Tankless water heater upgrade Nutana Saskatoon">
-    <div class="work-caption">
-      <span class="work-caption-tag">Water Heater</span>
-      Tankless Upgrade — Nutana
-    </div>
-  </div>
-</a>
+        <div class="work-card">
+          <img src="/public/images/jobs/tankless-water-heater-nutana.webp" alt="Tankless water heater upgrade Nutana Saskatoon">
+          <div class="work-caption"><span class="work-caption-tag">Water Heater</span>Tankless Upgrade — Nutana</div>
+        </div>
+      </a>
       <a href="/emergency-plumbing-saskatoon" class="work-link">
-  <div class="work-card">
-    <img src="/public/images/jobs/emergency-leak-stonebridge.webp" 
-         alt="Emergency plumbing leak Stonebridge Saskatoon">
-    <div class="work-caption">
-      <span class="work-caption-tag">Plumbing</span>
-      Emergency Leak — Stonebridge
-    </div>
-  </div>
-</a>
+        <div class="work-card">
+          <img src="/public/images/jobs/emergency-leak-stonebridge.webp" alt="Emergency plumbing leak Stonebridge Saskatoon">
+          <div class="work-caption"><span class="work-caption-tag">Plumbing</span>Emergency Leak — Stonebridge</div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -1155,9 +1156,9 @@
     </div>
     <div style="text-align:center; margin-top:2rem; font-size:0.7rem; color:rgba(255,255,255,0.2);">
       Designed with 🧠 by 
-<a href="https://altxmedia.com" target="_blank" rel="noopener noreferrer">
-  AltX Media
-</a>
+      <a href="https://altxmedia.com" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.2); text-decoration:none;">
+        AltX Media
+      </a>
     </div>
   </div>
 </footer>

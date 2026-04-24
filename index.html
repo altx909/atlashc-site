@@ -216,10 +216,21 @@
       overflow-y: auto;
       transform: translateX(-100%);
       transition: transform 0.3s ease;
-      /* padding-top set dynamically by JS to clear header */
       padding: 0 1.4rem 3rem;
     }
     .mobile-drawer.open { transform: translateX(0); }
+
+    /* Logo at the top of the drawer */
+    .mobile-drawer-logo {
+      padding: 1rem 0 1.2rem;
+      border-bottom: 1px solid #eeebe4;
+      margin-bottom: 0.5rem;
+    }
+    .mobile-drawer-logo img {
+      height: 64px;
+      width: auto;
+      display: block;
+    }
 
     .mobile-nav-links { list-style: none; margin-bottom: 1.2rem; }
     .mobile-nav-links li a,
@@ -484,13 +495,12 @@
     .qs-btn i { color: #e8551a; font-size: 0.72rem; }
     .qs-btn:hover { border-color: #e8551a; color: #e8551a; background: #fff0ea; transform: translateY(-1px); }
 
-    /* Trust bar */
-    .trust-bar { background: #1a1712; padding: 0.9rem 0; }
+    /* ===== TRUST BAR ===== */
+    .trust-bar { background: #1a1712; padding: 0.9rem 0; overflow: hidden; }
     .trust-bar-inner {
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-wrap: wrap;
       max-width: 1160px;
       margin: 0 auto;
       padding: 0 1.5rem;
@@ -504,9 +514,36 @@
       font-weight: 600;
       color: rgba(255,255,255,0.75);
       white-space: nowrap;
+      flex-shrink: 0;
     }
     .trust-item + .trust-item { border-left: 1px solid rgba(255,255,255,0.1); }
     .trust-item i { color: #e8551a; font-size: 0.78rem; }
+
+    /* Desktop: track is just a passthrough wrapper */
+.trust-bar-track {
+  display: contents;
+}
+    /* Mobile: auto-scroll ticker */
+    @media (max-width: 860px) {
+      .trust-bar { padding: 0; }
+      .trust-bar-inner {
+        justify-content: flex-start;
+        padding: 0;
+        overflow: hidden;
+        max-width: 100%;
+      }
+      .trust-bar-track {
+        display: flex;
+        width: max-content;
+        animation: trustScroll 16s linear infinite;
+        padding: 0.9rem 0;
+      }
+      .trust-item + .trust-item { border-left: 1px solid rgba(255,255,255,0.1); }
+      @keyframes trustScroll {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+    }
 
     /* Sections */
     .section { padding: 5rem 0; }
@@ -759,15 +796,6 @@
       .hero-inner { padding: 2.8rem 0 2.5rem; }
       .hero h1 { font-size: clamp(2.4rem, 12vw, 3.8rem) !important; }
       .section { padding: 3.2rem 0; }
-      .trust-bar-inner {
-        justify-content: flex-start;
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-      .trust-bar-inner::-webkit-scrollbar { display: none; }
-      .trust-item { padding: 0.4rem 0.8rem; font-size: 0.78rem; flex-shrink: 0 !important; }
       .stat-row { gap: 1.2rem; }
     }
     @media (max-width: 480px) { .logo img { height: 72px !important; } }
@@ -849,6 +877,10 @@
 <!-- ===== MOBILE DRAWER ===== -->
 <div class="mobile-drawer-backdrop" id="mobileBackdrop"></div>
 <nav class="mobile-drawer" id="mobileDrawer" aria-label="Mobile navigation">
+  <!-- Logo at top of drawer -->
+  <div class="mobile-drawer-logo">
+    <img src="/public/images/logo/atlashc-logo.svg" alt="AtlasHC" onerror="this.src='https://placehold.co/160x50?text=AtlasHC'">
+  </div>
   <ul class="mobile-nav-links">
     <li>
       <button id="mobileServicesBtn" aria-expanded="false">
@@ -928,12 +960,21 @@
   </div>
 </section>
 
+<!-- ===== TRUST BAR ===== -->
 <div class="trust-bar">
   <div class="trust-bar-inner">
-    <div class="trust-item"><i class="fas fa-certificate"></i> Licensed & Insured</div>
-    <div class="trust-item"><i class="fas fa-bolt"></i> Same-Day Service</div>
-    <div class="trust-item"><i class="fas fa-map-marker-alt"></i> Saskatoon Local</div>
-    <div class="trust-item"><i class="fas fa-dollar-sign"></i> Upfront Pricing</div>
+    <!-- trust-bar-track wraps items on mobile for the scroll animation -->
+    <div class="trust-bar-track">
+      <div class="trust-item"><i class="fas fa-certificate"></i> Licensed & Insured</div>
+      <div class="trust-item"><i class="fas fa-bolt"></i> Same-Day Service</div>
+      <div class="trust-item"><i class="fas fa-map-marker-alt"></i> Saskatoon Local</div>
+      <div class="trust-item"><i class="fas fa-dollar-sign"></i> Upfront Pricing</div>
+      <!-- Duplicated for seamless infinite loop on mobile -->
+      <div class="trust-item"><i class="fas fa-certificate"></i> Licensed & Insured</div>
+      <div class="trust-item"><i class="fas fa-bolt"></i> Same-Day Service</div>
+      <div class="trust-item"><i class="fas fa-map-marker-alt"></i> Saskatoon Local</div>
+      <div class="trust-item"><i class="fas fa-dollar-sign"></i> Upfront Pricing</div>
+    </div>
   </div>
 </div>
 
@@ -1143,9 +1184,9 @@
 
 <script>
   // ── DESKTOP MEGA MENU ──────────────────────────────────────
-  const siteHeader  = document.getElementById('siteHeader');
-  const servicesBtn = document.getElementById('servicesBtn');
-  const megaMenu    = document.getElementById('megaMenu');
+  const siteHeader   = document.getElementById('siteHeader');
+  const servicesBtn  = document.getElementById('servicesBtn');
+  const megaMenu     = document.getElementById('megaMenu');
   const megaBackdrop = document.getElementById('megaBackdrop');
 
   function positionMega() {
@@ -1174,16 +1215,14 @@
   window.addEventListener('scroll', () => { if (megaMenu.classList.contains('open')) positionMega(); }, { passive: true });
 
   // ── MOBILE DRAWER ──────────────────────────────────────────
-  const hamburger          = document.getElementById('hamburger');
-  const hamburgerIcon      = document.getElementById('hamburgerIcon');
-  const mobileDrawer       = document.getElementById('mobileDrawer');
-  const mobileBackdrop     = document.getElementById('mobileBackdrop');
-  const mobileServicesBtn  = document.getElementById('mobileServicesBtn');
-  const mobileServicesPanel= document.getElementById('mobileServicesPanel');
+  const hamburger           = document.getElementById('hamburger');
+  const hamburgerIcon       = document.getElementById('hamburgerIcon');
+  const mobileDrawer        = document.getElementById('mobileDrawer');
+  const mobileBackdrop      = document.getElementById('mobileBackdrop');
+  const mobileServicesBtn   = document.getElementById('mobileServicesBtn');
+  const mobileServicesPanel = document.getElementById('mobileServicesPanel');
 
   function openDrawer() {
-    // Pad the top of the drawer content so it clears the sticky header
-    mobileDrawer.style.paddingTop = (siteHeader.offsetHeight + 12) + 'px';
     mobileDrawer.classList.add('open');
     mobileBackdrop.classList.add('open');
     hamburger.setAttribute('aria-expanded', 'true');
@@ -1204,14 +1243,12 @@
   mobileBackdrop.addEventListener('click', closeDrawer);
   mobileDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
 
-  // Services accordion inside drawer
   mobileServicesBtn.addEventListener('click', () => {
     const open = mobileServicesPanel.classList.toggle('open');
     mobileServicesBtn.classList.toggle('open', open);
     mobileServicesBtn.setAttribute('aria-expanded', String(open));
   });
 
-  // Escape key closes everything
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') { closeMega(); closeDrawer(); }
   });
@@ -1230,7 +1267,11 @@
   slides.forEach((_, i) => {
     const dot = document.createElement('div');
     dot.className = 'dot' + (i === 0 ? ' active' : '');
-    dot.addEventListener('click', () => { clearInterval(interval); showSlide(i); interval = setInterval(() => showSlide((currentIndex + 1) % slides.length), 5000); });
+    dot.addEventListener('click', () => {
+      clearInterval(interval);
+      showSlide(i);
+      interval = setInterval(() => showSlide((currentIndex + 1) % slides.length), 5000);
+    });
     dotsContainer.appendChild(dot);
   });
 

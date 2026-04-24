@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Furnace Repair Saskatoon | Same-Day Service | AtlasHC</title>
+  <meta name="description" content="Expert furnace repair in Saskatoon. Same-day service, licensed technicians, upfront pricing. All makes & models. Call AtlasHC at (306) 801-5053.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://atlashc.ca/furnace-repair-saskatoon">
+  <meta property="og:title" content="Furnace Repair Saskatoon | AtlasHC">
+  <meta property="og:description" content="Same-day furnace repair in Saskatoon. Licensed local technicians. Upfront pricing. No surprises.">
+  <meta property="og:url" content="https://atlashc.ca/furnace-repair-saskatoon">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Familjen Grotesk', sans-serif;
+      background: #fff;
+      color: #1a1712;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── HEADER ── */
+    .header {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e4e0d8;
+      padding: 0.8rem 0;
+    }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; gap: 1rem;
+    }
+    .logo img { height: 80px; width: auto; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
+    .nav-links a { font-weight: 600; font-size: 0.95rem; color: #2e2b26; text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: #e8551a; }
+    .btn-call-header {
+      background: #e8551a; color: white !important; font-weight: 700; font-size: 0.95rem;
+      padding: 0.6rem 1.3rem; border-radius: 8px; display: inline-flex; align-items: center;
+      gap: 0.45rem; white-space: nowrap; transition: all 0.2s; text-decoration: none;
+    }
+    .btn-call-header:hover { background: #f0672c; transform: translateY(-1px); }
+    .hamburger { display: none; font-size: 1.6rem; cursor: pointer; background: none; border: none; color: #1a1712; padding: 4px; }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .logo img { height: 64px; }
+    }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb { background: #faf9f7; border-bottom: 1px solid #e4e0d8; padding: 0.65rem 0; }
+    .breadcrumb ol { display: flex; flex-wrap: wrap; gap: 0.3rem; list-style: none; font-size: 0.82rem; color: #8c8780; }
+    .breadcrumb li + li::before { content: '/'; margin-right: 0.3rem; color: #d0ccc4; }
+    .breadcrumb a { color: #8c8780; text-decoration: none; }
+    .breadcrumb a:hover { color: #e8551a; }
+    .breadcrumb li:last-child { color: #1a1712; font-weight: 600; }
+
+    /* ── SERVICE HERO ── */
+    .service-hero {
+      background: #faf9f7;
+      padding: 3.5rem 0 3rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid #e4e0d8;
+    }
+    .service-hero::after {
+      content: '';
+      position: absolute; right: 0; top: 0; bottom: 0; width: 38%;
+      background: linear-gradient(160deg, #f3f0ea 0%, #e8e3d8 100%);
+      clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    .service-hero-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+    }
+    .sh-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: #fff0ea; border: 1px solid #fddccc; color: #e8551a;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+    .service-hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 1.2rem;
+    }
+    .service-hero h1 em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic; color: #e8551a; font-weight: 400;
+    }
+    .sh-lead { font-size: 1.05rem; color: #4a4640; margin-bottom: 2rem; line-height: 1.7; max-width: 480px; }
+    .sh-cta { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem; }
+    .btn-primary {
+      background: #e8551a; color: white; font-weight: 700; font-size: 1.05rem;
+      padding: 0.88rem 1.9rem; border-radius: 10px; display: inline-flex;
+      align-items: center; gap: 0.55rem; transition: all 0.22s;
+      box-shadow: 0 3px 14px rgba(232,85,26,0.25); text-decoration: none;
+    }
+    .btn-primary:hover { background: #f0672c; transform: translateY(-2px); box-shadow: 0 8px 26px rgba(232,85,26,0.35); }
+    .btn-outline {
+      background: transparent; color: #1a1712; font-weight: 700; font-size: 1.05rem;
+      padding: 0.88rem 1.9rem; border-radius: 10px; border: 1.5px solid #e4e0d8;
+      display: inline-flex; align-items: center; gap: 0.55rem; text-decoration: none;
+    }
+    .btn-outline:hover { border-color: #e8551a; color: #e8551a; background: #fff0ea; }
+    .sh-trust { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .sh-trust-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 600; color: #4a4640; }
+    .sh-trust-item i { color: #e8551a; font-size: 0.8rem; }
+    .sh-image {
+      border-radius: 18px; overflow: hidden; aspect-ratio: 4/3;
+      background: url('/public/images/services/furnace-repair-saskatoon.webp') center/cover no-repeat,
+                  linear-gradient(135deg, #f3f0ea 0%, #e0dbd2 100%);
+      box-shadow: 0 16px 48px rgba(26,23,18,0.12);
+      position: relative; z-index: 2;
+    }
+    .sh-image-badge {
+      position: absolute; bottom: 1.2rem; left: 1.2rem;
+      background: white; border-radius: 10px;
+      padding: 0.7rem 1rem; font-size: 0.82rem; font-weight: 700;
+      box-shadow: 0 4px 16px rgba(26,23,18,0.12);
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .sh-image-badge i { color: #e8551a; }
+    @media (max-width: 860px) {
+      .service-hero::after { display: none; }
+      .service-hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .sh-image { aspect-ratio: 16/9; }
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar { background: #1a1712; padding: 1.5rem 0; }
+    .stats-bar-inner {
+      display: grid; grid-template-columns: repeat(4, 1fr); text-align: center;
+    }
+    .stat-cell { padding: 0.5rem 1rem; border-right: 1px solid rgba(255,255,255,0.08); }
+    .stat-cell:last-child { border-right: none; }
+    .stat-cell .num { font-size: 1.8rem; font-weight: 700; color: white; letter-spacing: -0.02em; line-height: 1; }
+    .stat-cell .num span { color: #e8551a; }
+    .stat-cell .lbl { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 0.25rem; font-weight: 500; }
+    @media (max-width: 640px) {
+      .stats-bar-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-cell:nth-child(2) { border-right: none; }
+      .stat-cell:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.08); }
+      .stat-cell:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.08); }
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .service-body { padding: 4rem 0; }
+    .service-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 3.5rem;
+      /* KEY FIX: align-items start so sidebar doesn't stretch to main height */
+      align-items: start;
+    }
+    @media (max-width: 960px) {
+      .service-layout {
+        grid-template-columns: 1fr;
+      }
+      /* On mobile, show sidebar after main content */
+      .service-layout .sidebar {
+        order: 2;
+      }
+      .service-layout .service-content {
+        order: 1;
+      }
+    }
+
+    /* ── MAIN COPY ── */
+    .service-content h2 {
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 700; letter-spacing: -0.02em; line-height: 1.15;
+      margin-bottom: 0.8rem; margin-top: 2.5rem;
+    }
+    .service-content h2:first-child { margin-top: 0; }
+    .service-content h2 em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic; font-weight: 400; color: #e8551a;
+    }
+    .service-content h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; margin-top: 1.6rem; }
+    .service-content p { color: #4a4640; font-size: 0.97rem; line-height: 1.75; margin-bottom: 1.2rem; }
+    .service-content ul { list-style: none; margin-bottom: 1.4rem; }
+    .service-content ul li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.95rem; color: #4a4640;
+      padding: 0.4rem 0; border-bottom: 1px solid #f3f0ea;
+    }
+    .service-content ul li:last-child { border-bottom: none; }
+    .service-content ul li i { color: #e8551a; margin-top: 0.22rem; flex-shrink: 0; font-size: 0.78rem; }
+
+    /* Symptoms grid */
+    .symptoms-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1rem; margin: 1.5rem 0 2rem;
+    }
+    .symptom-card {
+      background: #faf9f7; border: 1px solid #eeebe4;
+      border-radius: 12px; padding: 1.2rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .symptom-card:hover { border-color: #e8551a; box-shadow: 0 4px 16px rgba(232,85,26,0.08); }
+    .symptom-card i { color: #e8551a; font-size: 1.2rem; }
+    .symptom-card h4 { font-size: 0.92rem; font-weight: 700; }
+    .symptom-card p { font-size: 0.82rem; color: #8c8780; line-height: 1.5; margin: 0; }
+
+    /* Process steps */
+    .process-steps { margin: 1.5rem 0 2rem; }
+    .process-step { display: flex; gap: 1.2rem; padding: 1.2rem 0; border-bottom: 1px solid #eeebe4; }
+    .process-step:last-child { border-bottom: none; }
+    .step-num {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: #e8551a; color: white; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700;
+    }
+    .step-body h4 { font-size: 0.97rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .step-body p { font-size: 0.88rem; color: #8c8780; line-height: 1.6; margin: 0; }
+
+    /* Sub-page link cards */
+    .subpage-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1.5rem 0 2rem;
+    }
+    .subpage-card {
+      background: #faf9f7; border: 1px solid #eeebe4; border-radius: 14px;
+      padding: 1.4rem; text-decoration: none; color: inherit;
+      display: flex; align-items: flex-start; gap: 1rem;
+      transition: all 0.2s;
+    }
+    .subpage-card:hover { border-color: #e8551a; background: #fff8f5; box-shadow: 0 4px 16px rgba(232,85,26,0.08); transform: translateY(-2px); }
+    .subpage-card-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: #fff0ea; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #e8551a; font-size: 1.1rem;
+    }
+    .subpage-card h4 { font-size: 0.97rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .subpage-card p { font-size: 0.83rem; color: #8c8780; line-height: 1.5; margin: 0; }
+    .subpage-card-arrow { margin-left: auto; color: #d0ccc4; font-size: 0.7rem; align-self: center; transition: color 0.2s; flex-shrink: 0; }
+    .subpage-card:hover .subpage-card-arrow { color: #e8551a; }
+    @media (max-width: 560px) { .subpage-grid { grid-template-columns: 1fr; } }
+
+    /* Mid-page CTA banner */
+    .inline-cta {
+      background: #1a1712; border-radius: 16px;
+      padding: 1.8rem 2rem; margin: 2.5rem 0;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1.5rem; flex-wrap: wrap;
+    }
+    .inline-cta-text h3 { color: white; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .inline-cta-text p { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin: 0; }
+
+    /* FAQ */
+    .faq-list { margin: 1rem 0; }
+    .faq-item { border-bottom: 1px solid #eeebe4; }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 0; cursor: pointer;
+      font-weight: 700; font-size: 0.97rem; color: #1a1712;
+      background: none; border: none; width: 100%; text-align: left;
+      font-family: inherit; gap: 1rem;
+    }
+    .faq-q i { color: #e8551a; font-size: 0.75rem; flex-shrink: 0; transition: transform 0.25s; }
+    .faq-q.open i { transform: rotate(180deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+    .faq-a.open { max-height: 400px; padding-bottom: 1rem; }
+    .faq-a p { font-size: 0.93rem; color: #4a4640; line-height: 1.7; margin: 0; }
+
+    /* ── SIDEBAR ── */
+    /* 
+      FIX: The sidebar is position:relative by default.
+      The sticky CTA card inside uses position:sticky scoped to the sidebar column.
+      We DON'T set overflow:hidden on sidebar (that would break sticky).
+      Cards below the sticky CTA are normal flow — they won't be overlapped.
+    */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      /* This is the key: sidebar itself is NOT sticky, only the CTA card inside is */
+    }
+
+    .sidebar-cta {
+      background: #e8551a;
+      border-radius: 18px;
+      padding: 1.8rem;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(232,85,26,0.25);
+      /* Sticky scoped to sidebar column — won't escape or overlap other cards */
+      position: sticky;
+      top: 90px;
+      /* z-index kept low so it stays within sidebar stacking context */
+      z-index: 1;
+    }
+    .sidebar-cta h3 { color: white; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .sidebar-cta p { color: rgba(255,255,255,0.85); font-size: 0.88rem; margin-bottom: 1.4rem; line-height: 1.6; }
+    .btn-cta-white {
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      width: 100%; background: white; color: #e8551a;
+      font-weight: 700; font-size: 1rem; padding: 0.85rem;
+      border-radius: 10px; text-decoration: none; transition: 0.2s; margin-bottom: 0.8rem;
+    }
+    .btn-cta-white:hover { background: #fef6f2; }
+    .sidebar-cta-note { font-size: 0.78rem; color: rgba(255,255,255,0.65); }
+
+    /* All other sidebar cards — normal flow, never overlapped */
+    .sidebar-card {
+      background: #faf9f7;
+      border: 1px solid #eeebe4;
+      border-radius: 18px;
+      padding: 1.6rem;
+      /* No position:sticky — these scroll normally */
+    }
+    .sidebar-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; }
+    .sidebar-list { list-style: none; }
+    .sidebar-list li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.88rem; color: #4a4640;
+      padding: 0.45rem 0; border-bottom: 1px solid #eeebe4;
+    }
+    .sidebar-list li:last-child { border-bottom: none; }
+    .sidebar-list li i { color: #e8551a; margin-top: 0.2rem; flex-shrink: 0; font-size: 0.78rem; }
+
+    .sidebar-review {
+      background: white;
+      border: 1px solid #eeebe4;
+      border-radius: 18px;
+      padding: 1.4rem;
+    }
+    .review-stars { color: #e8551a; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 0.6rem; }
+    .review-body { font-style: italic; font-size: 0.88rem; color: #4a4640; line-height: 1.6; margin-bottom: 0.8rem; }
+    .review-name { font-weight: 700; font-size: 0.85rem; }
+    .review-more { display: block; font-size: 0.8rem; color: #e8551a; text-decoration: none; margin-top: 0.5rem; font-weight: 600; }
+    .review-more:hover { text-decoration: underline; }
+
+    .related-links { list-style: none; }
+    .related-links li a {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.55rem 0.5rem; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 500; color: #4a4640; text-decoration: none;
+      border-bottom: 1px solid #eeebe4; transition: all 0.15s;
+    }
+    .related-links li:last-child a { border-bottom: none; }
+    .related-links li a i { font-size: 0.6rem; color: #d0ccc4; }
+    .related-links li a:hover { color: #e8551a; background: #fff0ea; padding-left: 0.9rem; }
+    .related-links li a:hover i { color: #e8551a; }
+
+    /* Disable sticky on mobile — not needed, sidebar stacks below content */
+    @media (max-width: 960px) {
+      .sidebar-cta { position: relative; top: auto; }
+    }
+
+    /* ── REVIEW STRIP ── */
+    .reviews-strip { background: #faf9f7; padding: 3.5rem 0; border-top: 1px solid #e4e0d8; }
+    .reviews-strip-head {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.8rem; flex-wrap: wrap; gap: 1rem;
+    }
+    .reviews-strip-head h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
+    .reviews-strip-head h2 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: #e8551a; }
+    .reviews-strip-head a { font-size: 0.88rem; color: #e8551a; text-decoration: none; font-weight: 600; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .review-card { background: white; border: 1px solid #eeebe4; border-radius: 14px; padding: 1.4rem; box-shadow: 0 2px 8px rgba(26,23,18,0.05); }
+    .rc-stars { color: #e8551a; font-size: 0.82rem; letter-spacing: 2px; margin-bottom: 0.6rem; }
+    .rc-text { font-style: italic; font-size: 0.88rem; color: #4a4640; line-height: 1.65; margin-bottom: 0.8rem; }
+    .rc-author { font-weight: 700; font-size: 0.85rem; }
+    @media (max-width: 680px) { .reviews-grid { grid-template-columns: 1fr; } }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: #1a1712; text-align: center; padding: 4.5rem 0; position: relative; overflow: hidden;
+    }
+    .final-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(232,85,26,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .final-cta h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700;
+      letter-spacing: -0.02em; line-height: 1.1; color: white; margin-bottom: 0.7rem;
+    }
+    .final-cta h2 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: #e8551a; }
+    .final-cta p { color: rgba(255,255,255,0.5); margin-bottom: 2rem; font-size: 1rem; }
+    .final-cta-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+    .btn-ghost {
+      background: transparent; color: rgba(255,255,255,0.7); font-weight: 700;
+      font-size: 1rem; padding: 0.88rem 1.9rem; border-radius: 10px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      display: inline-flex; align-items: center; gap: 0.55rem; text-decoration: none;
+    }
+    .btn-ghost:hover { border-color: #e8551a; color: #e8551a; }
+
+    /* ── FOOTER ── */
+    .footer { background: #2e2b26; padding: 3rem 0 2rem; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1.2fr 1fr 1.2fr; gap: 2rem; align-items: start; }
+    .footer-col { text-align: left; }
+    .footer-business-name { font-size: 1.3rem; font-weight: 700; color: white; margin-bottom: 0.5rem; }
+    .footer-business-name span { color: #e8551a; }
+    .footer-contact { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin: 0.8rem 0; line-height: 1.8; }
+    .footer-contact a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer-contact a:hover { color: #e8551a; }
+    .footer-copyright { font-size: 0.7rem; color: rgba(255,255,255,0.3); margin-top: 1rem; }
+    .footer-col h4 { font-size: 1rem; font-weight: 700; color: white; margin-bottom: 1rem; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.5rem; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: #e8551a; }
+    @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; } }
+
+    /* Floating call */
+    .floating-call {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      background: #e8551a; color: white; width: 56px; height: 56px;
+      border-radius: 28px; display: none; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25); z-index: 99; text-decoration: none;
+    }
+    .floating-call i { font-size: 1.5rem; }
+    @media (max-width: 640px) { .floating-call { display: flex; } }
+
+    /* Label tag */
+    .label-tag {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #e8551a; margin-bottom: 0.8rem;
+    }
+    .label-tag::before { content: ''; width: 20px; height: 2px; background: #e8551a; border-radius: 1px; }
+  </style>
+</head>
+<body>
+
+<a href="tel:+13068015053" class="floating-call" aria-label="Call AtlasHC">
+  <i class="fas fa-phone-alt"></i>
+</a>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <a href="/"><img src="/public/images/logo/atlashc-logo.svg" alt="AtlasHC Logo" onerror="this.src='https://placehold.co/200x60?text=AtlasHC'"></a>
+    </div>
+    <button class="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/maintenance-plans">Maintenance Plans</a></li>
+        <li><a href="/financing">Financing</a></li>
+      </ul>
+    </nav>
+    <a href="tel:+13068015053" class="btn-call-header"><i class="fas fa-phone-alt"></i> (306) 801-5053</a>
+  </div>
+</header>
+
+<!-- ===== BREADCRUMB ===== -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/services">Services</a></li>
+      <li>Furnace Repair Saskatoon</li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ===== SERVICE HERO ===== -->
+<section class="service-hero">
+  <div class="container">
+    <div class="service-hero-inner">
+      <div class="sh-copy">
+        <span class="sh-eyebrow"><i class="fas fa-map-marker-alt"></i> Saskatoon, SK</span>
+        <h1>Furnace Repair in <em>Saskatoon</em></h1>
+        <p class="sh-lead">
+          Your furnace quits at the worst time. AtlasHC answers the phone, shows up same day,
+          and fixes it right — with upfront pricing and no surprises on your bill.
+        </p>
+        <div class="sh-cta">
+          <a href="tel:+13068015053" class="btn-primary"><i class="fas fa-phone-alt"></i> Call (306) 801-5053</a>
+          <a href="/financing" class="btn-outline"><i class="fas fa-credit-card"></i> Financing Available</a>
+        </div>
+        <div class="sh-trust">
+          <span class="sh-trust-item"><i class="fas fa-bolt"></i> Same-Day Available</span>
+          <span class="sh-trust-item"><i class="fas fa-certificate"></i> Licensed & Insured</span>
+          <span class="sh-trust-item"><i class="fas fa-dollar-sign"></i> Upfront Pricing</span>
+          <span class="sh-trust-item"><i class="fas fa-star"></i> 5.0 Google Rating</span>
+        </div>
+      </div>
+      <div class="sh-image">
+        <div class="sh-image-badge">
+          <i class="fas fa-clock"></i> Same-Day Service Available
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS BAR ===== -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-bar-inner">
+      <div class="stat-cell"><div class="num">5.0<span>★</span></div><div class="lbl">Google Rating</div></div>
+      <div class="stat-cell"><div class="num">150<span>+</span></div><div class="lbl">Happy Customers</div></div>
+      <div class="stat-cell"><div class="num">Same<span>-Day</span></div><div class="lbl">Service Available</div></div>
+      <div class="stat-cell"><div class="num">100<span>%</span></div><div class="lbl">Upfront Pricing</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN BODY ===== -->
+<div class="service-body">
+  <div class="container">
+    <div class="service-layout">
+
+      <!-- ── MAIN CONTENT ── -->
+      <main class="service-content">
+
+        <h2>Furnace Repair Saskatoon — <em>Fast, Local, Honest</em></h2>
+        <p>
+          When your furnace breaks down in a Saskatoon winter, waiting isn't an option.
+          AtlasHC is locally owned and operated — our technicians live in the same
+          neighbourhoods they service, and we pick up the phone when you call.
+          Whether it's a cracked heat exchanger, a failed ignitor, or a furnace that
+          simply won't start, we diagnose it fast and fix it right.
+        </p>
+        <p>
+          We service all major brands including Lennox, Carrier, Trane, Goodman, Bryant,
+          and more. Every repair comes with upfront pricing — you approve the cost before
+          we touch anything.
+        </p>
+
+        <h2>Signs Your Furnace Needs <em>Repair</em></h2>
+        <p>Don't wait until your heat goes out completely. These are the warning signs Saskatoon homeowners most commonly miss:</p>
+        <div class="symptoms-grid">
+          <div class="symptom-card"><i class="fas fa-thermometer-empty"></i><h4>Insufficient Heat</h4><p>Runs constantly but never warms your home to the set temperature.</p></div>
+          <div class="symptom-card"><i class="fas fa-bolt"></i><h4>Short Cycling</h4><p>Furnace turns on and off repeatedly in short bursts.</p></div>
+          <div class="symptom-card"><i class="fas fa-wind"></i><h4>Strange Noises</h4><p>Banging, squealing, or rattling coming from your furnace.</p></div>
+          <div class="symptom-card"><i class="fas fa-fire-alt"></i><h4>Yellow Pilot Light</h4><p>Should be blue. Yellow can indicate a carbon monoxide issue.</p></div>
+          <div class="symptom-card"><i class="fas fa-tint"></i><h4>High Energy Bills</h4><p>Sudden spike in gas or electric costs without a change in usage.</p></div>
+          <div class="symptom-card"><i class="fas fa-exclamation-triangle"></i><h4>Won't Turn On</h4><p>Thermostat is set correctly but furnace won't start at all.</p></div>
+        </div>
+
+        <h2>Our Furnace Repair <em>Process</em></h2>
+        <p>We keep it simple and transparent from the first call to the final invoice:</p>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-num">1</div>
+            <div class="step-body"><h4>Call or Book Online</h4><p>Real people answer. We'll gather the basics and get you on the schedule — often same day.</p></div>
+          </div>
+          <div class="process-step">
+            <div class="step-num">2</div>
+            <div class="step-body"><h4>Diagnosis & Upfront Quote</h4><p>Our tech diagnoses the issue and gives you a clear, written quote before any work begins. No surprises.</p></div>
+          </div>
+          <div class="process-step">
+            <div class="step-num">3</div>
+            <div class="step-body"><h4>Repair & Test</h4><p>We fix the issue with quality parts, then run a full system test to make sure everything is working safely.</p></div>
+          </div>
+          <div class="process-step">
+            <div class="step-num">4</div>
+            <div class="step-body"><h4>You're Warm Again</h4><p>We walk you through what was done, answer any questions, and leave your home exactly as we found it.</p></div>
+          </div>
+        </div>
+
+        <!-- Mid-page CTA -->
+        <div class="inline-cta">
+          <div class="inline-cta-text">
+            <h3>Furnace acting up? Don't wait.</h3>
+            <p>Same-day service available across Saskatoon. Real people answer the phone.</p>
+          </div>
+          <a href="tel:+13068015053" class="btn-primary"><i class="fas fa-phone-alt"></i> Call Now</a>
+        </div>
+
+        <h2>What We <em>Repair</em></h2>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Heat exchangers — cracked or failed</li>
+          <li><i class="fas fa-check-circle"></i> Ignitors & flame sensors</li>
+          <li><i class="fas fa-check-circle"></i> Inducer motors & draft fans</li>
+          <li><i class="fas fa-check-circle"></i> Control boards & thermostats</li>
+          <li><i class="fas fa-check-circle"></i> Gas valves & pressure switches</li>
+          <li><i class="fas fa-check-circle"></i> Blower motors & capacitors</li>
+          <li><i class="fas fa-check-circle"></i> Limit switches & safety controls</li>
+          <li><i class="fas fa-check-circle"></i> All makes and models</li>
+        </ul>
+
+        <!-- Related furnace sub-pages -->
+        <h2>Explore Other <em>Furnace Services</em></h2>
+        <p>Need something beyond a repair? We handle the full lifecycle of your furnace:</p>
+        <div class="subpage-grid">
+          <a href="/furnace-installation-saskatoon" class="subpage-card">
+            <div class="subpage-card-icon"><i class="fas fa-tools"></i></div>
+            <div>
+              <h4>Furnace Installation</h4>
+              <p>New home, upgrade, or full replacement — we install all major brands with a clean, warrantied job.</p>
+            </div>
+            <i class="fas fa-arrow-right subpage-card-arrow"></i>
+          </a>
+          <a href="/furnace-maintenance-saskatoon" class="subpage-card">
+            <div class="subpage-card-icon"><i class="fas fa-clipboard-check"></i></div>
+            <div>
+              <h4>Furnace Maintenance</h4>
+              <p>Annual tune-ups keep your furnace efficient, safe, and less likely to break down mid-winter.</p>
+            </div>
+            <i class="fas fa-arrow-right subpage-card-arrow"></i>
+          </a>
+        </div>
+
+        <h2>Serving All of <em>Saskatoon</em></h2>
+        <p>
+          AtlasHC serves homeowners and businesses across Saskatoon and surrounding areas,
+          including Stonebridge, Willowgrove, Evergreen, Lakeview, River Heights, Nutana,
+          Silverspring, Hampton Village, Rosewood, and more. Wherever you are in the city,
+          we can be there fast.
+        </p>
+
+        <!-- FAQ -->
+        <h2>Frequently Asked <em>Questions</em></h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How much does furnace repair cost in Saskatoon?<i class="fas fa-chevron-down"></i></button>
+            <div class="faq-a"><p>Furnace repair costs in Saskatoon typically range from $150–$600+ depending on the part and complexity. AtlasHC always provides a written upfront quote before any work begins — you'll never be surprised by your invoice.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Do you offer same-day furnace repair in Saskatoon?<i class="fas fa-chevron-down"></i></button>
+            <div class="faq-a"><p>Yes. Call before noon and we aim to have a technician at your door the same day. We also take after-hours calls for urgent situations — a cold house in Saskatchewan isn't something you should wait on.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Should I repair or replace my furnace?<i class="fas fa-chevron-down"></i></button>
+            <div class="faq-a"><p>A good rule of thumb: if your furnace is over 15 years old and repair costs exceed 50% of replacement cost, it's usually smarter to replace. Our techs will always give you an honest recommendation — we won't push a repair just to make a sale.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What furnace brands do you service?<i class="fas fa-chevron-down"></i></button>
+            <div class="faq-a"><p>We service all major brands including Lennox, Carrier, Trane, Goodman, Bryant, Rheem, York, Amana, and more. If it's a furnace, we can work on it.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is AtlasHC licensed and insured?<i class="fas fa-chevron-down"></i></button>
+            <div class="faq-a"><p>Yes. All AtlasHC technicians are fully licensed and insured in Saskatchewan. We're also locally owned — not a franchise or out-of-province call centre.</p></div>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- ── SIDEBAR ── -->
+      <aside class="sidebar">
+
+  <!-- 1. Why us — scrolls normally -->
+  <div class="sidebar-card">
+    <h4>Why Saskatoon Chooses AtlasHC</h4>
+    ...
+  </div>
+
+  <!-- 2. Review snippet — scrolls normally -->
+  <div class="sidebar-review">
+    ...
+  </div>
+
+  <!-- 3. Related services — scrolls normally -->
+  <div class="sidebar-card">
+    <h4>Related Services</h4>
+    ...
+  </div>
+
+  <!-- 4. Sticky CTA — LAST, so sticky kicks in deep into scroll -->
+  <div class="sidebar-cta">
+    <h3>Need Furnace Repair Today?</h3>
+    ...
+  </div>
+
+</aside>
+    </div>
+  </div>
+</div>
+
+<!-- ===== REVIEW STRIP ===== -->
+<section class="reviews-strip">
+  <div class="container">
+    <div class="reviews-strip-head">
+      <h2>What Saskatoon <em>Customers Say</em></h2>
+      <a href="https://share.google/88qkQlhBUxdoFvGej" target="_blank" rel="noopener">Read all Google reviews →</a>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="rc-stars">★★★★★</div>
+        <p class="rc-text">"Had an issue with my hot water heater and they came out extremely quickly. Explained everything they did and why. 10/10 service!"</p>
+        <div class="rc-author">— Tanner W</div>
+      </div>
+      <div class="review-card">
+        <div class="rc-stars">★★★★★</div>
+        <p class="rc-text">"Mac is so nice and knows what he is doing. Fixed the leak, guided me on future repairs. Very reasonable price. Highly recommended!"</p>
+        <div class="rc-author">— Vic M</div>
+      </div>
+      <div class="review-card">
+        <div class="rc-stars">★★★★★</div>
+        <p class="rc-text">"Professional, knowledgeable, and incredibly efficient. Arrived on time, explained everything clearly. Great attention to detail."</p>
+        <div class="rc-author">— Angela H</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta">
+  <div class="container" style="position:relative;z-index:1;">
+    <h2>Furnace Problem? Call <em>Now.</em></h2>
+    <p>Same-day service across Saskatoon. Upfront pricing. Real people answer.</p>
+    <div class="final-cta-btns">
+      <a href="tel:+13068015053" class="btn-primary"><i class="fas fa-phone-alt"></i> (306) 801-5053</a>
+      <a href="/financing" class="btn-ghost"><i class="fas fa-credit-card"></i> Financing Available</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-business-name">Atlas<span>HC</span></div>
+        <div class="footer-contact">
+          426 44 St E, Saskatoon, SK S7K 0W1<br>
+          <a href="mailto:office@atlashc.ca">office@atlashc.ca</a><br>
+          <a href="tel:+13068015053">(306) 801-5053</a>
+        </div>
+        <div class="footer-copyright">© ALL RIGHTS RESERVED</div>
+      </div>
+      <div class="footer-col">
+        <h4>Heating & Cooling</h4>
+        <ul class="footer-links">
+          <li><a href="/furnace-repair-saskatoon">Furnace Repair</a></li>
+          <li><a href="/furnace-installation-saskatoon">Furnace Installation</a></li>
+          <li><a href="/furnace-maintenance-saskatoon">Furnace Maintenance</a></li>
+          <li><a href="/ac-repair-saskatoon">AC Repair</a></li>
+          <li><a href="/ac-installation-saskatoon">AC Installation</a></li>
+          <li><a href="/ac-maintenance-saskatoon">AC Tune-up & Maintenance</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Water Heater</h4>
+        <ul class="footer-links">
+          <li><a href="/water-heater-repair-saskatoon">Water Heater Repair</a></li>
+          <li><a href="/water-heater-installation-saskatoon">Water Heater Installation</a></li>
+          <li><a href="/water-heater-maintenance-saskatoon">Water Heater Maintenance</a></li>
+          <li><a href="/tankless-water-heater-saskatoon">Tankless Water Heater</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Plumbing</h4>
+        <ul class="footer-links">
+          <li><a href="/plumbing-repair-saskatoon">Plumbing Repair</a></li>
+          <li><a href="/emergency-plumbing-saskatoon">Emergency Plumbing</a></li>
+          <li><a href="/leak-detection-saskatoon">Leak Detection & Repair</a></li>
+          <li><a href="/full-home-repiping">Full Home Repiping</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2rem;font-size:0.7rem;color:rgba(255,255,255,0.2);">
+      Designed with 🧠 by <a href="https://altxmedia.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.2);text-decoration:none;">AltX Media</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const answer = btn.nextElementSibling;
+      const isOpen = answer.classList.contains('open');
+      document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.faq-q').forEach(b => { b.classList.remove('open'); b.setAttribute('aria-expanded','false'); });
+      if (!isOpen) {
+        answer.classList.add('open');
+        btn.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","serviceType":"Furnace Repair","name":"Furnace Repair Saskatoon","description":"Same-day furnace repair in Saskatoon, SK. Licensed technicians, upfront pricing, all makes and models serviced.","provider":{"@type":"HVACBusiness","name":"AtlasHC Heating and Cooling","telephone":"+13068015053","url":"https://atlashc.ca","address":{"@type":"PostalAddress","streetAddress":"426 44 St E","addressLocality":"Saskatoon","addressRegion":"SK","postalCode":"S7K 0W1","addressCountry":"CA"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"150"}},"areaServed":{"@type":"City","name":"Saskatoon"},"url":"https://atlashc.ca/furnace-repair-saskatoon"}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://atlashc.ca/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://atlashc.ca/services"},{"@type":"ListItem","position":3,"name":"Furnace Repair Saskatoon","item":"https://atlashc.ca/furnace-repair-saskatoon"}]}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does furnace repair cost in Saskatoon?","acceptedAnswer":{"@type":"Answer","text":"Furnace repair costs in Saskatoon typically range from $150–$600+ depending on the part and complexity. AtlasHC always provides a written upfront quote before any work begins."}},{"@type":"Question","name":"Do you offer same-day furnace repair in Saskatoon?","acceptedAnswer":{"@type":"Answer","text":"Yes. Call before noon and we aim to have a technician at your door the same day. After-hours calls are also accepted for urgent situations."}},{"@type":"Question","name":"Should I repair or replace my furnace?","acceptedAnswer":{"@type":"Answer","text":"If your furnace is over 15 years old and repair costs exceed 50% of replacement cost, replacement is usually smarter. AtlasHC technicians will always give you an honest recommendation."}},{"@type":"Question","name":"What furnace brands do you service?","acceptedAnswer":{"@type":"Answer","text":"AtlasHC services all major brands including Lennox, Carrier, Trane, Goodman, Bryant, Rheem, York, Amana, and more."}},{"@type":"Question","name":"Is AtlasHC licensed and insured in Saskatchewan?","acceptedAnswer":{"@type":"Answer","text":"Yes. All AtlasHC technicians are fully licensed and insured in Saskatchewan. AtlasHC is locally owned and operated in Saskatoon."}}]}
+</script>
+
+</body>
+</html>

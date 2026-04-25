@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ===== CORE PAGES ===== -->
+  <url><loc>https://atlashc.ca/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://atlashc.ca/about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://atlashc.ca/services</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atlashc.ca/maintenance-plans</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- ===== FURNACE ===== -->
+  <url><loc>https://atlashc.ca/furnace-installation-saskatoon</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://atlashc.ca/furnace-repair-saskatoon</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://atlashc.ca/furnace-maintenance-saskatoon</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- ===== AC ===== -->
+  <url><loc>https://atlashc.ca/ac-installation-saskatoon</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://atlashc.ca/ac-repair-saskatoon</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://atlashc.ca/ac-maintenance-saskatoon</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- ===== HVAC ===== -->
+  <url><loc>https://atlashc.ca/hvac-system-installation</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://atlashc.ca/smart-thermostat-installation</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- ===== WATER HEATER ===== -->
+  <url><loc>https://atlashc.ca/water-heater-installation-saskatoon</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://atlashc.ca/water-heater-repair-saskatoon</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://atlashc.ca/water-heater-maintenance-saskatoon</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://atlashc.ca/tankless-water-heater-saskatoon</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://atlashc.ca/tankless-water-heater-repair</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- ===== PLUMBING ===== -->
+  <url><loc>https://atlashc.ca/plumbing-repair-saskatoon</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://atlashc.ca/emergency-plumbing-saskatoon</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://atlashc.ca/leak-detection-saskatoon</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://atlashc.ca/full-home-repiping</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atlashc.ca/plumbing-installation</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atlashc.ca/basement-plumbing</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+</urlset>

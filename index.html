@@ -756,11 +756,11 @@
 
     /* Footer */
     .footer { background: #2e2b26; padding: 3rem 0 2rem; }
-    .footer-grid { display: grid; grid-template-columns: 1fr 1.2fr 1fr 1.2fr; gap: 2rem; align-items: start; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1.6fr 1.6fr 1fr; gap: 2rem; align-items: start; }
     .footer-col { text-align: left; }
     .footer-business-name { font-size: 1.3rem; font-weight: 700; color: white; margin-bottom: 0.5rem; }
     .footer-business-name span { color: #e8551a; }
-    .footer-contact { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin: 0.8rem 0; }
+    .footer-contact { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin: 0.8rem 0; line-height: 1.8; }
     .footer-contact a { color: rgba(255,255,255,0.5); text-decoration: none; }
     .footer-contact a:hover { color: #e8551a; }
     .footer-copyright { font-size: 0.7rem; color: rgba(255,255,255,0.3); margin-top: 1rem; }
@@ -769,9 +769,19 @@
     .footer-links li { margin-bottom: 0.5rem; }
     .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: #e8551a; }
+    .footer-credit { display: flex; align-items: center; justify-content: space-between; margin-top: 2.5rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; gap: 0.5rem; }
+    .footer-credit-copy { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+    .footer-credit-brand { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+    .footer-credit-brand span { color: #e8551a; }
+    .footer-credit-brand:hover { color: white; }
     @media (max-width: 860px) {
-      .footer-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
-      .footer-col { text-align: center; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem 1.5rem; }
+      .footer-col:first-child { grid-column: 1 / -1; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .footer-credit { justify-content: center; text-align: center; flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-col:first-child { grid-column: auto; }
     }
 
     /* Floating call */
@@ -1154,36 +1164,42 @@
           <li><a href="/furnace-maintenance-saskatoon">Furnace Maintenance</a></li>
           <li><a href="/ac-repair-saskatoon">AC Repair</a></li>
           <li><a href="/ac-installation-saskatoon">AC Installation</a></li>
-          <li><a href="/ac-maintenance-saskatoon">AC Tune‑up & Maintenance</a></li>
+          <li><a href="/ac-maintenance-saskatoon">AC Tune-up & Maintenance</a></li>
           <li><a href="/hvac-system-installation">Full HVAC System Installation</a></li>
-          <li><a href="/smart-thermostat-installation">Smart Thermostat Installation</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Water Heater</h4>
+        <h4>Water Heater & Plumbing</h4>
         <ul class="footer-links">
-          <li><a href="/water-heater-repair-saskatoon">Water Heater Repair</a></li>
           <li><a href="/water-heater-installation-saskatoon">Water Heater Installation</a></li>
+          <li><a href="/water-heater-repair-saskatoon">Water Heater Repair</a></li>
           <li><a href="/water-heater-maintenance-saskatoon">Water Heater Maintenance</a></li>
-          <li><a href="/tankless-water-heater-saskatoon">Tankless Water Heater Installation</a></li>
-          <li><a href="/tankless-water-heater-repair">Tankless Water Heater Repair</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Plumbing</h4>
-        <ul class="footer-links">
+          <li><a href="/tankless-water-heater-saskatoon">Tankless Water Heater</a></li>
           <li><a href="/plumbing-repair-saskatoon">Plumbing Repair</a></li>
           <li><a href="/emergency-plumbing-saskatoon">Emergency Plumbing</a></li>
           <li><a href="/leak-detection-saskatoon">Leak Detection & Repair</a></li>
-          <li><a href="/plumbing-installation">Plumbing Installation & Pipefitting</a></li>
           <li><a href="/full-home-repiping">Full Home Repiping</a></li>
-          <li><a href="/basement-plumbing">Plumbing for Basement Development</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/services">All Services</a></li>
+          <li><a href="/maintenance-plans">Maintenance Plans</a></li>
+          <li><a href="https://www.financeit.ca/en/direct/payment-plan/YT0zMDA4NjMmbD0mcD1MdElMb05ZR0dfNllpTXZOSkxxZlZBJnM9MCZ2PTE=/apply" target="_blank" rel="noopener">Financing</a></li>
+        </ul>
+        <h4 style="margin-top:1.4rem;">Blog</h4>
+        <ul class="footer-links">
+          <li><a href="/blog">All Articles</a></li>
         </ul>
       </div>
     </div>
-    <div style="text-align:center;margin-top:2rem;font-size:0.7rem;color:rgba(255,255,255,0.2);">
-      Designed with 🧠 by
-      <a href="https://altxmedia.com" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.2);text-decoration:none;">AltX Media</a>
+    <div class="footer-credit">
+      <span class="footer-credit-copy">© 2025 AtlasHC Heating and Cooling. All rights reserved.</span>
+      <a href="https://altxmedia.com" target="_blank" rel="noopener noreferrer" class="footer-credit-brand">
+        Designed & Built by <span>AltX Media</span>
+      </a>
     </div>
   </div>
 </footer>

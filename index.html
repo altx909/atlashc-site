@@ -872,10 +872,7 @@
     </button>
     <div class="nav-menu">
       <ul class="nav-links">
-        <li class="nav-services-item">
-  <a href="/services" class="nav-services-link">Services</a>
-  <button class="nav-services-trigger" id="servicesBtn" aria-haspopup="true" aria-expanded="false"><i class="fas fa-chevron-down chevron"></i></button>
-</li>
+       <li><a href="/services" class="nav-services-trigger" id="servicesBtn" aria-haspopup="true">Services <i class="fas fa-chevron-down chevron"></i></a></li>
         <li><a href="/about">About Us</a></li>
         <li><a href="/maintenance-plans">Maintenance Plans</a></li>
         <li><a href="/financing">Financing</a></li>
@@ -1215,10 +1212,10 @@
     servicesBtn.setAttribute('aria-expanded', 'false');
   }
 
-  servicesBtn.addEventListener('click', e => {
-    e.stopPropagation();
-    megaMenu.classList.contains('open') ? closeMega() : openMega();
-  });
+  servicesBtn.addEventListener('mouseenter',()=>openMega());
+siteHeader.addEventListener('mouseleave',()=>closeMega());
+megaMenu.addEventListener('mouseleave',()=>closeMega());
+servicesBtn.addEventListener('click',e=>{window.location.href='/services';});
   megaBackdrop.addEventListener('click', closeMega);
   megaMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMega));
   window.addEventListener('scroll', () => { if (megaMenu.classList.contains('open')) positionMega(); }, { passive: true });

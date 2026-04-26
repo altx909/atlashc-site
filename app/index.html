@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#e8551a">
+  <title>Get the AtlasHC App | Save Us to Your Phone</title>
+  <meta name="description" content="Save AtlasHC to your phone for one-tap access to Saskatoon's trusted HVAC and plumbing team.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --orange: #e8551a;
+      --orange-light: #fff0ea;
+      --dark: #1a1712;
+      --mid: #4a4640;
+      --cream: #faf9f7;
+      --border: #e4e0d8;
+    }
+    body {
+      font-family: 'Familjen Grotesk', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      padding: 1rem 1.5rem;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--dark); text-decoration: none; }
+    .logo span { color: var(--orange); }
+    .header-call {
+      background: var(--orange);
+      color: white;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--dark);
+      padding: 3rem 1.5rem 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(232,85,26,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-icon {
+      width: 80px; height: 80px;
+      background: var(--orange);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+      font-size: 2rem;
+      color: white;
+      box-shadow: 0 8px 24px rgba(232,85,26,0.4);
+      position: relative;
+    }
+    .hero h1 {
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-weight: 700;
+      color: white;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+      position: relative;
+    }
+    .hero h1 em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--orange);
+    }
+    .hero p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.97rem;
+      line-height: 1.7;
+      max-width: 380px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* ── INSTALL DETECTED BANNER ── */
+    .install-banner {
+      display: none;
+      background: var(--orange);
+      padding: 1.2rem 1.5rem;
+      text-align: center;
+    }
+    .install-banner.show { display: block; }
+    .install-banner p {
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+    .btn-install {
+      background: white;
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.75rem 2rem;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .btn-install:hover { transform: translateY(-2px); }
+
+    /* ── MAIN CONTENT ── */
+    .content { max-width: 600px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+    /* device tabs */
+    .device-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.4rem;
+    }
+    .device-tab {
+      flex: 1;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 9px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      transition: all 0.2s;
+      background: transparent;
+      color: var(--mid);
+    }
+    .device-tab.active {
+      background: var(--orange);
+      color: white;
+      box-shadow: 0 2px 8px rgba(232,85,26,0.25);
+    }
+
+    /* instructions */
+    .instructions { display: none; }
+    .instructions.show { display: block; }
+
+    .step-list { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .step {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 34px; height: 34px;
+      flex-shrink: 0;
+      background: var(--orange);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+    .step-body h3 { font-size: 0.97rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .step-body p { font-size: 0.88rem; color: var(--mid); line-height: 1.6; margin: 0; }
+    .step-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px; height: 28px;
+      background: var(--orange-light);
+      border-radius: 6px;
+      color: var(--orange);
+      font-size: 0.85rem;
+      margin-top: 0.3rem;
+      flex-shrink: 0;
+    }
+
+    /* tip box */
+    .tip {
+      background: var(--orange-light);
+      border: 1px solid #fddccc;
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    .tip i { color: var(--orange); margin-top: 0.15rem; flex-shrink: 0; }
+    .tip p { font-size: 0.88rem; color: var(--mid); line-height: 1.6; margin: 0; }
+
+    /* QR section */
+    .qr-section {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .qr-section h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .qr-section p {
+      font-size: 0.85rem;
+      color: var(--mid);
+      margin-bottom: 1.4rem;
+    }
+    #qrcode {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    #qrcode canvas, #qrcode img {
+      border-radius: 8px;
+      border: 4px solid white;
+      box-shadow: 0 4px 16px rgba(26,23,18,0.1);
+    }
+    .qr-url {
+      font-size: 0.82rem;
+      color: var(--orange);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    /* bottom call cta */
+    .call-cta {
+      background: var(--dark);
+      border-radius: 16px;
+      padding: 1.8rem;
+      text-align: center;
+    }
+    .call-cta h3 { color: white; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .call-cta p { color: rgba(255,255,255,0.5); font-size: 0.88rem; margin-bottom: 1.2rem; }
+    .btn-call {
+      background: var(--orange);
+      color: white;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 0.85rem 2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 3px 14px rgba(232,85,26,0.3);
+      transition: all 0.2s;
+    }
+    .btn-call:hover { background: #f0672c; transform: translateY(-2px); }
+
+    @media (max-width: 400px) {
+      .hero { padding: 2rem 1.2rem 2.5rem; }
+      .content { padding: 2rem 1.2rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <a href="/" class="logo">Atlas<span>HC</span></a>
+  <a href="tel:+13068015053" class="header-call"><i class="fas fa-phone-alt"></i> Call Us</a>
+</header>
+
+<!-- Auto install banner — shows only if PWA install prompt is available -->
+<div class="install-banner" id="installBanner">
+  <p>🎉 Your browser supports one-tap install!</p>
+  <button class="btn-install" id="installBtn"><i class="fas fa-download"></i> Install AtlasHC App Now</button>
+</div>
+
+<div class="hero">
+  <div class="hero-icon"><i class="fas fa-mobile-alt"></i></div>
+  <h1>Save AtlasHC to <em>Your Phone</em></h1>
+  <p>One tap to call us, browse services, or request service — no app store needed.</p>
+</div>
+
+<div class="content">
+
+  <!-- Device tabs -->
+  <div class="device-tabs">
+    <button class="device-tab active" onclick="showTab('android')" id="tab-android">
+      <i class="fab fa-android"></i> Android
+    </button>
+    <button class="device-tab" onclick="showTab('iphone')" id="tab-iphone">
+      <i class="fab fa-apple"></i> iPhone
+    </button>
+  </div>
+
+  <!-- Android Instructions -->
+  <div class="instructions show" id="instr-android">
+    <div class="step-list">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Open atlashc.ca in Chrome</h3>
+          <p>Make sure you're using <strong>Google Chrome</strong> — not Samsung Browser or another browser.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Tap the three dots menu</h3>
+          <p>Look for the <strong>⋮</strong> icon in the top-right corner of Chrome and tap it.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Tap "Add to Home Screen"</h3>
+          <p>Scroll down in the menu and tap <strong>"Add to Home Screen"</strong>. Confirm by tapping Add.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Done — find us on your home screen</h3>
+          <p>The AtlasHC icon will appear on your home screen. Tap it anytime for instant access.</p>
+        </div>
+      </div>
+    </div>
+    <div class="tip">
+      <i class="fas fa-lightbulb"></i>
+      <p><strong>Tip:</strong> Chrome may automatically show a banner at the bottom of the screen saying "Add AtlasHC to Home Screen" — just tap that banner to install instantly.</p>
+    </div>
+  </div>
+
+  <!-- iPhone Instructions -->
+  <div class="instructions" id="instr-iphone">
+    <div class="step-list">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Open atlashc.ca in Safari</h3>
+          <p>This only works in <strong>Safari</strong> on iPhone — not Chrome or other browsers on iOS.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Tap the Share button</h3>
+          <p>Tap the <strong>Share icon</strong> — it looks like a box with an arrow pointing up, at the bottom of the screen.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Tap "Add to Home Screen"</h3>
+          <p>Scroll through the share sheet and tap <strong>"Add to Home Screen"</strong>. Tap Add in the top right to confirm.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Done — find us on your home screen</h3>
+          <p>The AtlasHC icon will appear on your home screen just like a regular app.</p>
+        </div>
+      </div>
+    </div>
+    <div class="tip">
+      <i class="fas fa-lightbulb"></i>
+      <p><strong>Tip:</strong> On newer iPhones running iOS 16.4+, Safari supports the full install experience — the app opens without any browser bar, just like a native app.</p>
+    </div>
+  </div>
+
+  <!-- QR Code -->
+  <div class="qr-section">
+    <h3>On a different device? Scan this QR code</h3>
+    <p>Point your phone camera at the code below to open AtlasHC instantly.</p>
+    <div id="qrcode"></div>
+    <div class="qr-url">atlashc.ca</div>
+  </div>
+
+  <!-- Call CTA -->
+  <div class="call-cta">
+    <h3>Need help right now?</h3>
+    <p>Skip the app — just call us directly. Real people answer.</p>
+    <a href="tel:+13068015053" class="btn-call"><i class="fas fa-phone-alt"></i> (306) 801-5053</a>
+  </div>
+
+</div>
+
+<!-- QR Code library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+  // Generate QR code
+  new QRCode(document.getElementById('qrcode'), {
+    text: 'https://atlashc.ca',
+    width: 180,
+    height: 180,
+    colorDark: '#1a1712',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.H
+  });
+
+  // Tab switching
+  function showTab(device) {
+    document.querySelectorAll('.device-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.instructions').forEach(i => i.classList.remove('show'));
+    document.getElementById('tab-' + device).classList.add('active');
+    document.getElementById('instr-' + device).classList.add('show');
+  }
+
+  // Auto-detect device and show correct tab
+  if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+    showTab('iphone');
+  }
+
+  // PWA install prompt
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById('installBanner').classList.add('show');
+  });
+
+  document.getElementById('installBtn').addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    document.getElementById('installBanner').classList.remove('show');
+  });
+
+  // Register service worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
+
+</body>
+</html>

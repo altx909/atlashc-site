@@ -202,7 +202,7 @@
     .footer-links li{margin-bottom:0.5rem;}
     .footer-links a{font-size:0.85rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;}
     .footer-links a:hover{color:#e8551a;}
-    @media(max-width:860px){.footer-grid{grid-template-columns:1fr;gap:2rem;text-align:center;}}
+    .footer-credit{display:flex;align-items:center;justify-content:space-between;margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,0.08);flex-wrap:wrap;gap:0.5rem;}     .footer-credit-copy{font-size:0.78rem;color:rgba(255,255,255,0.35);}     .footer-credit-brand{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;}     .footer-credit-brand span{color:#e8551a;}     .footer-credit-brand:hover{color:white;}     @media(max-width:860px){       .footer-grid{grid-template-columns:1fr 1fr;gap:2rem 1.5rem;}       .footer-col:first-child{grid-column:1 / -1;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,0.08);}       .footer-credit{justify-content:center;text-align:center;flex-direction:column;align-items:center;}     }     @media(max-width:480px){       .footer-grid{grid-template-columns:1fr;}       .footer-col:first-child{grid-column:auto;}     }
     .floating-call{position:fixed;bottom:1.5rem;right:1.5rem;background:#e8551a;color:white;width:56px;height:56px;border-radius:28px;display:none;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.25);z-index:99;text-decoration:none;}
     .floating-call i{font-size:1.5rem;}
     @media(max-width:640px){.floating-call{display:flex;}}
@@ -259,7 +259,7 @@
     <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars" id="hamburgerIcon"></i></button>
     <div class="nav-menu">
       <ul class="nav-links">
-        <li><button class="nav-services-trigger" id="servicesBtn" aria-haspopup="true" aria-expanded="false">Services <i class="fas fa-chevron-down chevron"></i></button></li>
+        <li><a href="/services" class="nav-services-trigger" id="servicesBtn" aria-haspopup="true">Services <i class="fas fa-chevron-down chevron"></i></a></li>
         <li><a href="/about">About Us</a></li>
         <li><a href="/maintenance-plans">Maintenance Plans</a></li>
         <li><a href="https://www.financeit.ca/en/direct/payment-plan/YT0zMDA4NjMmbD0mcD1MdElMb05ZR0dfNllpTXZOSkxxZlZBJnM9MCZ2PTE=/apply" target="_blank" rel="noopener">Financing</a></li>
@@ -489,7 +489,7 @@
       <div class="footer-col">
         <div class="footer-business-name">Atlas<span>HC</span></div>
         <div class="footer-contact">426 44 St E, Saskatoon, SK S7K 0W1<br><a href="mailto:office@atlashc.ca">office@atlashc.ca</a><br><a href="tel:+13068015053">(306) 801-5053</a></div>
-        <div class="footer-copyright">© ALL RIGHTS RESERVED</div>
+        <div class="footer-copyright">© 2025 AtlasHC. All rights reserved.</div>
       </div>
       <div class="footer-col">
         <h4>Heating & Cooling</h4>
@@ -500,29 +500,39 @@
           <li><a href="/ac-repair-saskatoon">AC Repair</a></li>
           <li><a href="/ac-installation-saskatoon">AC Installation</a></li>
           <li><a href="/ac-maintenance-saskatoon">AC Tune-up & Maintenance</a></li>
+          <li><a href="/hvac-system-installation">Full HVAC System Installation</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Water Heater</h4>
+        <h4>Water Heater & Plumbing</h4>
         <ul class="footer-links">
-          <li><a href="/water-heater-repair-saskatoon">Water Heater Repair</a></li>
           <li><a href="/water-heater-installation-saskatoon">Water Heater Installation</a></li>
+          <li><a href="/water-heater-repair-saskatoon">Water Heater Repair</a></li>
           <li><a href="/water-heater-maintenance-saskatoon">Water Heater Maintenance</a></li>
           <li><a href="/tankless-water-heater-saskatoon">Tankless Water Heater</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Plumbing</h4>
-        <ul class="footer-links">
           <li><a href="/plumbing-repair-saskatoon">Plumbing Repair</a></li>
           <li><a href="/emergency-plumbing-saskatoon">Emergency Plumbing</a></li>
           <li><a href="/leak-detection-saskatoon">Leak Detection & Repair</a></li>
           <li><a href="/full-home-repiping">Full Home Repiping</a></li>
         </ul>
       </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/services">All Services</a></li>
+          <li><a href="/maintenance-plans">Maintenance Plans</a></li>
+          <li><a href="https://www.financeit.ca/en/direct/payment-plan/YT0zMDA4NjMmbD0mcD1MdElMb05ZR0dfNllpTXZOSkxxZlZBJnM9MCZ2PTE=/apply" target="_blank" rel="noopener">Financing</a></li>
+        </ul>
+        <h4 style="margin-top:1.4rem;">Blog</h4>
+        <ul class="footer-links">
+          <li><a href="/blog">All Articles</a></li>
+        </ul>
+      </div>
     </div>
-    <div style="text-align:center;margin-top:2rem;font-size:0.7rem;color:rgba(255,255,255,0.2);">
-      Designed with 🧠 by <a href="https://altxmedia.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.2);text-decoration:none;">AltX Media</a>
+    <div class="footer-credit">
+      <span class="footer-credit-copy">© 2025 AtlasHC Heating and Cooling. All rights reserved.</span>
+      <a href="https://altxmedia.com" target="_blank" rel="noopener" class="footer-credit-brand">Designed & Built by <span>AltX Media</span></a>
     </div>
   </div>
 </footer>
@@ -532,7 +542,7 @@
   function positionMega(){megaMenu.style.top=siteHeader.getBoundingClientRect().bottom+'px';}
   function openMega(){positionMega();megaMenu.classList.add('open');megaBackdrop.classList.add('open');servicesBtn.classList.add('open');servicesBtn.setAttribute('aria-expanded','true');}
   function closeMega(){megaMenu.classList.remove('open');megaBackdrop.classList.remove('open');servicesBtn.classList.remove('open');servicesBtn.setAttribute('aria-expanded','false');}
-  servicesBtn.addEventListener('click',e=>{e.stopPropagation();megaMenu.classList.contains('open')?closeMega():openMega();});
+  let megaTimeout;   servicesBtn.addEventListener('mouseenter',()=>{clearTimeout(megaTimeout);openMega();});   servicesBtn.addEventListener('mouseleave',()=>{megaTimeout=setTimeout(closeMega,100);});   megaMenu.addEventListener('mouseenter',()=>clearTimeout(megaTimeout));   megaMenu.addEventListener('mouseleave',()=>{megaTimeout=setTimeout(closeMega,100);});   servicesBtn.addEventListener('click',()=>{window.location.href='/services';});
   megaBackdrop.addEventListener('click',closeMega);
   megaMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMega));
   window.addEventListener('scroll',()=>{if(megaMenu.classList.contains('open'))positionMega();},{passive:true});

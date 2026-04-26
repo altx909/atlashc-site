@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="theme-color" content="#e8551a">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>About AtlasHC | Saskatchewan Local Boys Serving Saskatoon | AtlasHC</title>
   <meta name="description" content="AtlasHC is a locally owned HVAC and plumbing company serving Saskatoon and Saskatchewan. Saskatchewan local boys — licensed, honest, and built for our climate.">
@@ -810,5 +811,12 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"About AtlasHC","url":"https://atlashc.ca/about","description":"AtlasHC is a locally owned HVAC and plumbing company based in Saskatoon, Saskatchewan. Saskatchewan local boys serving Saskatoon and Saskatchewan.","publisher":{"@type":"HVACBusiness","name":"AtlasHC Heating and Cooling","telephone":"+13068015053","url":"https://atlashc.ca","address":{"@type":"PostalAddress","streetAddress":"426 44 St E","addressLocality":"Saskatoon","addressRegion":"SK","postalCode":"S7K 0W1","addressCountry":"CA"}}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://atlashc.ca/"},{"@type":"ListItem","position":2,"name":"About Us","item":"https://atlashc.ca/about"}]}</script>
 
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
 </body>
 </html>

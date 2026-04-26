@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="theme-color" content="#e8551a">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Local Trusted Partners Saskatoon | AtlasHC</title>
   <meta name="description" content="AtlasHC is proud to support Saskatoon homeowners by connecting them with trusted local businesses. Browse our network of recommended local partners.">
@@ -346,5 +347,12 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Local Trusted Partners","url":"https://atlashc.ca/trusted-partners","description":"AtlasHC's network of trusted local Saskatoon businesses.","publisher":{"@type":"Organization","name":"AtlasHC Heating and Cooling","url":"https://atlashc.ca"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://atlashc.ca/"},{"@type":"ListItem","position":2,"name":"Trusted Partners","item":"https://atlashc.ca/trusted-partners"}]}</script>
 
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
 </body>
 </html>

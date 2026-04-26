@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="theme-color" content="#e8551a">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>HVAC & Plumbing Services Saskatoon | AtlasHC</title>
   <meta name="description" content="Browse all AtlasHC services in Saskatoon — furnace repair & installation, AC, water heater, tankless, and plumbing. Licensed technicians, upfront pricing, same-day available.">
@@ -532,5 +533,12 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"HVAC & Plumbing Services Saskatoon","description":"All AtlasHC heating, cooling, water heater, and plumbing services in Saskatoon, SK.","url":"https://atlashc.ca/services","provider":{"@type":"HVACBusiness","name":"AtlasHC Heating and Cooling","telephone":"+13068015053","url":"https://atlashc.ca","address":{"@type":"PostalAddress","streetAddress":"426 44 St E","addressLocality":"Saskatoon","addressRegion":"SK","postalCode":"S7K 0W1","addressCountry":"CA"}}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://atlashc.ca/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://atlashc.ca/services"}]}</script>
 
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="theme-color" content="#e8551a">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>HVAC & Plumbing Blog Saskatoon | Tips, Guides & Advice | AtlasHC</title>
   <meta name="description" content="Heating, cooling, water heater and plumbing tips for Saskatoon homeowners. Expert advice from AtlasHC — Saskatoon's trusted local HVAC and plumbing company.">
@@ -534,5 +535,12 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"AtlasHC Blog","description":"Heating, cooling, water heater and plumbing tips for Saskatoon homeowners.","url":"https://atlashc.ca/blog","publisher":{"@type":"Organization","name":"AtlasHC Heating and Cooling","logo":{"@type":"ImageObject","url":"https://atlashc.ca/public/images/logo/atlashc-logo.svg"}}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://atlashc.ca/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://atlashc.ca/blog"}]}</script>
 
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
 </body>
 </html>

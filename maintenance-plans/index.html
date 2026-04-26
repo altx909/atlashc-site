@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="theme-color" content="#e8551a">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Maintenance Plans Saskatoon | HVAC & Plumbing Service Plans | AtlasHC</title>
   <meta name="description" content="AtlasHC maintenance plans for Saskatoon homeowners. HVAC Essentials, Plumbing Essentials, and Total Home Protect — starting at CA$14.99/mo. Licensed local technicians.">
@@ -845,5 +846,12 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeMega(); closeDrawer(); } });
 </script>
 
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
 </body>
 </html>

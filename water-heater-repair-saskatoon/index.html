@@ -541,7 +541,12 @@
   function positionMega(){megaMenu.style.top=siteHeader.getBoundingClientRect().bottom+'px';}
   function openMega(){positionMega();megaMenu.classList.add('open');megaBackdrop.classList.add('open');servicesBtn.classList.add('open');servicesBtn.setAttribute('aria-expanded','true');}
   function closeMega(){megaMenu.classList.remove('open');megaBackdrop.classList.remove('open');servicesBtn.classList.remove('open');servicesBtn.setAttribute('aria-expanded','false');}
-  servicesBtn.addEventListener('click',e=>{e.stopPropagation();megaMenu.classList.contains('open')?closeMega():openMega();});
+  let megaTimeout;
+servicesBtn.addEventListener('mouseenter',()=>{clearTimeout(megaTimeout);openMega();});
+servicesBtn.addEventListener('mouseleave',()=>{megaTimeout=setTimeout(closeMega,100);});
+megaMenu.addEventListener('mouseenter',()=>clearTimeout(megaTimeout));
+megaMenu.addEventListener('mouseleave',()=>{megaTimeout=setTimeout(closeMega,100);});
+servicesBtn.addEventListener('click',()=>{window.location.href='/services';});
   megaBackdrop.addEventListener('click',closeMega);
   megaMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMega));
   window.addEventListener('scroll',()=>{if(megaMenu.classList.contains('open'))positionMega();},{passive:true});

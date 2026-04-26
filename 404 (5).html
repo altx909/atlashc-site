@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — No Furnace Found | AtlasHC</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --orange: #e8551a;
+      --orange-mid: #c44010;
+      --orange-light: #fff0ea;
+      --dark: #1a1712;
+      --mid: #4a4640;
+      --cream: #faf9f7;
+      --border: #e4e0d8;
+      --skin: #f5c5a3;
+      --skin-dark: #d4956e;
+    }
+    body {
+      font-family: 'Familjen Grotesk', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 10;
+    }
+    .logo { font-size: 1.5rem; font-weight: 700; color: var(--dark); text-decoration: none; }
+    .logo span { color: var(--orange); }
+    .header-call {
+      background: var(--orange);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.55rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: background 0.2s;
+    }
+    .header-call:hover { background: #f0672c; }
+
+    /* ── STAGE ── */
+    .stage {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem 6rem;
+      position: relative;
+      overflow: hidden;
+      gap: 2rem;
+    }
+
+    /* subtle bg blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--orange);
+      opacity: 0.06;
+      pointer-events: none;
+      animation: blob-pulse 5s ease-in-out infinite;
+    }
+    @keyframes blob-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    /* ── PIPES ── */
+    .pipe {
+      position: absolute;
+      bottom: 54px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 5;
+    }
+    .pipe.l { left: 6%; }
+    .pipe.r { right: 6%; }
+    .pipe-cap {
+      width: 64px; height: 18px;
+      background: #43a047;
+      border: 3px solid #2e7d32;
+      border-radius: 4px 4px 0 0;
+      position: relative;
+      z-index: 6;
+    }
+    .pipe-cap::after {
+      content: '';
+      display: block;
+      margin: 3px 7px 0;
+      height: 6px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 2px;
+    }
+    .pipe-stem {
+      width: 50px; height: 70px;
+      background: #4caf50;
+      border: 3px solid #43a047;
+      border-top: none;
+      z-index: 6;
+    }
+
+    /* ── PEEPING HEAD ──
+       The wrapper clips the head. It sits between the ground
+       and the pipe cap so the head is invisible when hidden,
+       and peeks above the cap when it rises.
+    ── */
+    .peep-clip {
+      position: absolute;
+      /* sits just below the pipe cap opening */
+      bottom: calc(54px + 70px); /* ground + stem */
+      width: 48px;
+      /* tall enough that the head starts hidden below */
+      height: 48px;
+      overflow: hidden;
+      z-index: 4; /* behind the pipe cap (z:6) so head is masked by pipe cap */
+    }
+    .peep-clip.l { left: calc(6% + 7px); }
+    .peep-clip.r { right: calc(6% + 7px); }
+
+    .peep-head {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(100%); /* start hidden */
+      width: 38px; height: 36px;
+      background: var(--skin);
+      border: 2.5px solid var(--skin-dark);
+      border-radius: 7px 7px 4px 4px;
+      animation: peep 8s ease-in-out infinite;
+    }
+    .peep-clip.l .peep-head { animation-delay: 1s; }
+    .peep-clip.r .peep-head { animation-delay: 4.5s; }
+
+    @keyframes peep {
+      0%, 22%, 82%, 100% { transform: translateX(-50%) translateY(100%); }
+      32%, 70%           { transform: translateX(-50%) translateY(5%); }
+    }
+
+    /* bald shine */
+    .peep-head::before {
+      content: '';
+      position: absolute;
+      top: 5px; left: 6px;
+      width: 10px; height: 5px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 50%;
+      transform: rotate(-20deg);
+    }
+
+    .peep-eyes {
+      position: absolute;
+      top: 12px; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 9px;
+    }
+    .peep-eye {
+      width: 6px; height: 6px;
+      background: var(--dark);
+      border-radius: 50%;
+      position: relative;
+      animation: peep-blink 8s ease-in-out infinite;
+    }
+    .peep-clip.l .peep-eye { animation-delay: 1s; }
+    .peep-clip.r .peep-eye { animation-delay: 4.5s; }
+    @keyframes peep-blink {
+      0%, 22%, 82%, 100% { transform: scaleY(1); }
+      32%, 70%           { transform: scaleY(1.5); }
+    }
+    .peep-eye::after {
+      content: '';
+      position: absolute;
+      top: 1px; right: 1px;
+      width: 2px; height: 2px;
+      background: white;
+      border-radius: 50%;
+    }
+    .peep-mouth {
+      position: absolute;
+      bottom: 6px; left: 50%;
+      transform: translateX(-50%);
+      width: 10px; height: 6px;
+      border: 2px solid var(--skin-dark);
+      border-radius: 50%;
+    }
+
+    /* ── GROUND ── */
+    .ground {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 54px;
+      background: var(--dark);
+      z-index: 2;
+      overflow: hidden;
+      display: flex;
+    }
+    .ground::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: var(--orange);
+      z-index: 3;
+    }
+    .g-tile {
+      flex-shrink: 0;
+      width: 54px; height: 54px;
+      border-right: 1px solid rgba(255,255,255,0.04);
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 3px,
+        transparent 3px, transparent 10px
+      );
+    }
+
+    /* ── CHARACTER SCENE ──
+       position:relative container so ? blocks can be
+       absolutely positioned relative to the character
+    ── */
+    .char-scene {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* question blocks — absolutely positioned flanking the character */
+    .qb {
+      position: absolute;
+      width: 40px; height: 40px;
+      background: #f5a623;
+      border: 3px solid #b87400;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: white;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.22);
+      box-shadow: inset 0 3px 0 rgba(255,255,255,0.28), inset 0 -3px 0 rgba(0,0,0,0.18);
+      animation: qbump 5s ease-in-out infinite;
+    }
+    /* left column */
+    .qb.l1 { top: 40px;  left: -58px; animation-delay: 0s; }
+    .qb.l2 { top: 88px;  left: -58px; animation-delay: 0.9s; }
+    /* right column */
+    .qb.r1 { top: 40px;  right: -58px; animation-delay: 0.5s; }
+    .qb.r2 { top: 88px;  right: -58px; animation-delay: 1.4s; }
+
+    @keyframes qbump {
+      0%, 82%, 100% { transform: translateY(0); }
+      88%           { transform: translateY(-7px); }
+    }
+
+    /* floating ? marks above head */
+    .confusion {
+      display: flex;
+      align-items: flex-end;
+      gap: 5px;
+      height: 26px;
+      margin-bottom: 2px;
+    }
+    .qm {
+      font-weight: 900;
+      color: var(--orange);
+      opacity: 0;
+      animation: qm-rise 2.5s ease-out infinite;
+    }
+    .qm:nth-child(1) { font-size: 0.7rem;  animation-delay: 0s; }
+    .qm:nth-child(2) { font-size: 0.9rem;  animation-delay: 0.6s; }
+    .qm:nth-child(3) { font-size: 1.05rem; animation-delay: 1.2s; }
+    @keyframes qm-rise {
+      0%   { opacity: 0; transform: translateY(2px); }
+      20%  { opacity: 1; transform: translateY(-5px); }
+      70%  { opacity: 0.7; transform: translateY(-14px); }
+      100% { opacity: 0; transform: translateY(-22px); }
+    }
+
+    /* whole character bobs */
+    .char-bob {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: char-bob 2.2s ease-in-out infinite;
+    }
+    @keyframes char-bob {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-5px); }
+    }
+
+    /* HEAD */
+    .t-head {
+      width: 60px; height: 56px;
+      background: var(--skin);
+      border: 3px solid var(--skin-dark);
+      border-radius: 12px 12px 7px 7px;
+      position: relative;
+      animation: head-tilt 3.2s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+    @keyframes head-tilt {
+      0%, 55%, 100% { transform: rotate(0deg); }
+      63%  { transform: rotate(-5deg); }
+      72%  { transform: rotate(4deg); }
+      81%  { transform: rotate(-2deg); }
+    }
+    .t-head::before { /* shine 1 */
+      content: '';
+      position: absolute;
+      top: 7px; left: 8px;
+      width: 17px; height: 8px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 50%;
+      transform: rotate(-22deg);
+    }
+    .t-head::after { /* shine 2 */
+      content: '';
+      position: absolute;
+      top: 5px; left: 30px;
+      width: 7px; height: 5px;
+      background: rgba(255,255,255,0.22);
+      border-radius: 50%;
+    }
+    .t-brows {
+      position: absolute;
+      top: 12px; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+    }
+    .t-brow {
+      width: 12px; height: 3px;
+      background: #7a4828;
+      border-radius: 2px;
+    }
+    .t-brow.l { transform: rotate(16deg) translateY(-2px); }
+    .t-brow.r { transform: rotate(-16deg) translateY(-2px); }
+    .t-eyes {
+      position: absolute;
+      top: 22px; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 14px;
+    }
+    .t-eye {
+      width: 8px; height: 8px;
+      background: var(--dark);
+      border-radius: 50%;
+      position: relative;
+      animation: blink 5s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 42%, 52%, 100% { transform: scaleY(1); }
+      47% { transform: scaleY(0.08); }
+    }
+    .t-eye::after {
+      content: '';
+      position: absolute;
+      top: 1px; right: 1px;
+      width: 3px; height: 3px;
+      background: white;
+      border-radius: 50%;
+    }
+    .t-mouth {
+      position: absolute;
+      bottom: 10px; left: 50%;
+      transform: translateX(-50%);
+      width: 18px; height: 8px;
+      border: 2.5px solid var(--skin-dark);
+      border-top: none;
+      border-radius: 0 0 9px 9px;
+    }
+    .t-sweat {
+      position: absolute;
+      top: 5px; right: -13px;
+      width: 8px; height: 12px;
+      background: #87ceeb;
+      border-radius: 50% 50% 45% 45% / 28% 28% 72% 72%;
+      animation: sweat 3.2s ease-in-out infinite;
+    }
+    @keyframes sweat {
+      0%, 100% { opacity: 0; transform: translateY(0); }
+      15%  { opacity: 1; }
+      80%  { opacity: 1; transform: translateY(8px); }
+      90%  { opacity: 0; transform: translateY(11px); }
+    }
+    .t-scratch {
+      position: absolute;
+      top: 10px; right: -22px;
+      width: 20px; height: 9px;
+      background: var(--skin);
+      border: 2px solid var(--skin-dark);
+      border-radius: 4px;
+      transform-origin: left center;
+      animation: scratch 3.2s ease-in-out infinite;
+    }
+    @keyframes scratch {
+      0%, 52%, 100% { transform: rotate(-5deg); }
+      60%  { transform: rotate(-28deg) translateY(-3px); }
+      68%  { transform: rotate(-10deg); }
+      76%  { transform: rotate(-24deg) translateY(-2px); }
+    }
+
+    /* TORSO */
+    .t-torso {
+      width: 66px; height: 52px;
+      background: var(--orange);
+      border: 3px solid var(--orange-mid);
+      border-radius: 4px 4px 3px 3px;
+      margin-top: -2px;
+      position: relative;
+    }
+    .t-torso::before { /* badge */
+      content: 'AtlasHC';
+      position: absolute;
+      top: 8px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--dark);
+      color: white;
+      font-size: 0.41rem;
+      font-weight: 700;
+      padding: 2px 5px;
+      border-radius: 3px;
+      white-space: nowrap;
+      letter-spacing: 0.06em;
+    }
+    .t-torso::after { /* belt */
+      content: '';
+      position: absolute;
+      bottom: 5px; left: 4px; right: 4px;
+      height: 8px;
+      background: var(--dark);
+      border-radius: 3px;
+    }
+    .t-arm-left {
+      position: absolute;
+      top: 6px; left: -19px;
+      width: 19px; height: 10px;
+      background: var(--orange);
+      border: 2px solid var(--orange-mid);
+      border-radius: 4px;
+    }
+    .t-arm-right {
+      position: absolute;
+      top: 6px; right: -24px;
+      width: 24px; height: 10px;
+      background: var(--orange);
+      border: 2px solid var(--orange-mid);
+      border-radius: 4px;
+      transform-origin: left center;
+      animation: arm-hold 2.2s ease-in-out infinite;
+    }
+    @keyframes arm-hold {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(-10deg); }
+    }
+    .t-wrench {
+      position: absolute;
+      right: -16px; top: -8px;
+      font-size: 0.95rem;
+      color: #9e9e9e;
+      transform: rotate(40deg);
+      animation: wrench-move 2.2s ease-in-out infinite;
+    }
+    @keyframes wrench-move {
+      0%, 100% { transform: rotate(40deg); }
+      50%      { transform: rotate(22deg); }
+    }
+    .t-legs {
+      display: flex;
+      gap: 10px;
+      margin-top: -1px;
+    }
+    .t-leg {
+      width: 22px; height: 25px;
+      background: #2e2b26;
+      border: 2.5px solid var(--dark);
+      border-radius: 2px 2px 0 0;
+    }
+    .t-boots { display: flex; gap: 10px; }
+    .t-boot {
+      width: 27px; height: 12px;
+      background: #111;
+      border: 2px solid #000;
+      border-radius: 2px 6px 2px 2px;
+    }
+
+    /* ── COPY ── */
+    .error-copy {
+      text-align: center;
+      max-width: 520px;
+      z-index: 2;
+    }
+    .error-num {
+      font-size: clamp(5rem, 14vw, 8.5rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--dark);
+      position: relative;
+      display: inline-block;
+      margin-bottom: 0.2rem;
+    }
+    .error-num::after {
+      content: '404';
+      position: absolute;
+      top: 5px; left: 5px;
+      color: var(--orange);
+      opacity: 0.1;
+      z-index: -1;
+    }
+    .error-title {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .error-title em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--orange);
+    }
+    .error-sub {
+      font-size: 0.97rem;
+      color: var(--mid);
+      line-height: 1.75;
+      margin-bottom: 1.8rem;
+    }
+    .error-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .btn-primary {
+      background: var(--orange);
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.82rem 1.7rem;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      box-shadow: 0 3px 14px rgba(232,85,26,0.28);
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .btn-primary:hover { background: #f0672c; transform: translateY(-2px); }
+    .btn-outline {
+      background: var(--orange-light);
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.82rem 1.7rem;
+      border-radius: 10px;
+      border: 1.5px solid var(--orange);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      animation: btn-pulse 2s infinite;
+    }
+    @keyframes btn-pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(232,85,26,0.25); }
+      70%  { box-shadow: 0 0 0 8px rgba(232,85,26,0); }
+      100% { box-shadow: 0 0 0 0 rgba(232,85,26,0); }
+    }
+    .btn-outline:hover { background: white; transform: translateY(-2px); }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      justify-content: center;
+    }
+    .ql {
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--mid);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+    .ql:hover { border-color: var(--orange); color: var(--orange); background: var(--orange-light); }
+
+    @media (max-width: 640px) {
+      .pipe, .peep-clip { display: none; }
+      .qb { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <a href="/" class="logo">Atlas<span>HC</span></a>
+  <a href="tel:+13068015053" class="header-call"><i class="fas fa-phone-alt"></i> (306) 801-5053</a>
+</header>
+
+<!-- bg blobs -->
+<div class="blob" style="width:220px;height:220px;top:5%;left:-6%;animation-delay:0s"></div>
+<div class="blob" style="width:120px;height:120px;top:50%;right:1%;animation-delay:2s"></div>
+<div class="blob" style="width:70px;height:70px;top:20%;right:14%;animation-delay:3.5s"></div>
+
+<main class="stage">
+
+  <!-- Left pipe -->
+  <div class="pipe l">
+    <div class="pipe-cap"></div>
+    <div class="pipe-stem"></div>
+  </div>
+  <!-- Left peep — clipped, behind pipe cap -->
+  <div class="peep-clip l">
+    <div class="peep-head">
+      <div class="peep-eyes">
+        <div class="peep-eye"></div>
+        <div class="peep-eye"></div>
+      </div>
+      <div class="peep-mouth"></div>
+    </div>
+  </div>
+
+  <!-- Right pipe -->
+  <div class="pipe r">
+    <div class="pipe-cap"></div>
+    <div class="pipe-stem"></div>
+  </div>
+  <!-- Right peep -->
+  <div class="peep-clip r">
+    <div class="peep-head">
+      <div class="peep-eyes">
+        <div class="peep-eye"></div>
+        <div class="peep-eye"></div>
+      </div>
+      <div class="peep-mouth"></div>
+    </div>
+  </div>
+
+  <!-- Character scene with flanking ? blocks -->
+  <div class="char-scene">
+
+    <!-- flanking ? blocks — absolutely positioned -->
+    <div class="qb l1">?</div>
+    <div class="qb l2">?</div>
+    <div class="qb r1">?</div>
+    <div class="qb r2">?</div>
+
+    <!-- floating ? marks -->
+    <div class="confusion">
+      <span class="qm">?</span>
+      <span class="qm">?</span>
+      <span class="qm">?</span>
+    </div>
+
+    <div class="char-bob">
+      <div class="t-head">
+        <div class="t-brows">
+          <div class="t-brow l"></div>
+          <div class="t-brow r"></div>
+        </div>
+        <div class="t-eyes">
+          <div class="t-eye"></div>
+          <div class="t-eye"></div>
+        </div>
+        <div class="t-mouth"></div>
+        <div class="t-sweat"></div>
+        <div class="t-scratch"></div>
+      </div>
+      <div class="t-torso">
+        <div class="t-arm-left"></div>
+        <div class="t-arm-right">
+          <i class="fas fa-wrench t-wrench"></i>
+        </div>
+      </div>
+      <div class="t-legs">
+        <div class="t-leg"></div>
+        <div class="t-leg"></div>
+      </div>
+      <div class="t-boots">
+        <div class="t-boot"></div>
+        <div class="t-boot"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Copy -->
+  <div class="error-copy">
+    <div class="error-num">404</div>
+    <h1 class="error-title">No Furnace <em>Found.</em></h1>
+    <p class="error-sub">
+      Our tech checked behind the walls, under the slab,<br>
+      even in the crawl space. This page doesn't exist.
+    </p>
+    <div class="error-btns">
+      <a href="/" class="btn-primary"><i class="fas fa-home"></i> Back to Home</a>
+      <a href="tel:+13068015053" class="btn-outline"><i class="fas fa-phone-alt"></i> Call Us Instead</a>
+    </div>
+    <div class="quick-links">
+      <a href="/furnace-repair-saskatoon" class="ql">Furnace Repair</a>
+      <a href="/ac-repair-saskatoon" class="ql">AC Repair</a>
+      <a href="/water-heater-repair-saskatoon" class="ql">Water Heater</a>
+      <a href="/plumbing-repair-saskatoon" class="ql">Plumbing</a>
+      <a href="/emergency-plumbing-saskatoon" class="ql">Emergency</a>
+      <a href="/services" class="ql">All Services</a>
+    </div>
+  </div>
+
+  <!-- Ground -->
+  <div class="ground" id="ground"></div>
+
+</main>
+
+<script>
+  const g = document.getElementById('ground');
+  const n = Math.ceil(window.innerWidth / 54) + 2;
+  for (let i = 0; i < n; i++) {
+    const t = document.createElement('div');
+    t.className = 'g-tile';
+    g.appendChild(t);
+  }
+</script>
+
+</body>
+</html>

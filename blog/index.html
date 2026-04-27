@@ -528,12 +528,14 @@
       tab.classList.add('active');
       const cat=tab.dataset.cat;
       cards.forEach(card=>{
-        if(cat==='all'||card.dataset.cat===cat){
-          card.style.display='flex';
-        } else {
-          card.style.display='none';
-        }
-      });
+  if(cat==='all'){
+    card.style.display='flex';
+  } else if(card.dataset.cat===cat){
+    card.style.display='flex';
+  } else {
+    card.style.display='none';
+  }
+});
     });
   });
 </script>

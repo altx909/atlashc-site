@@ -1118,7 +1118,7 @@
   const DELAY_MS = 25000; // show after 25 seconds
 
   // Don't show if already dismissed or installed
-  if (localStorage.getItem(STORAGE_KEY)) return;
+  // show every visit
   if (window.matchMedia('(display-mode: standalone)').matches) return;
   if (window.navigator.standalone === true) return;
 

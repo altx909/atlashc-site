@@ -341,6 +341,22 @@
         </div>
       </a>
 
+      <!-- COOLING — PUBLISHED -->
+<a href="/blog/ac-installation-cost-saskatoon" class="post-card" data-cat="cooling" data-status="published">
+  <div class="post-card-img" style="background:#1a1712;background-image:url('/public/images/services/ac-installation-saskatoon.webp');background-size:cover;background-position:center;">
+    <div class="post-card-img-placeholder"></div>
+    <span class="post-card-img-cat"><i class="fas fa-snowflake"></i> Cooling</span>
+  </div>
+  <div class="post-card-body">
+    <h3>How Much Does AC Installation Cost in Saskatoon?</h3>
+    <p class="post-card-excerpt">Most homeowners pay $4,500–$9,000 installed. Here's what actually moves the price — and the red flags to watch when getting quotes.</p>
+    <div class="post-card-footer">
+      <span class="post-card-meta"><i class="fas fa-calendar-alt"></i> April 2025</span>
+      <i class="fas fa-arrow-right post-card-arrow"></i>
+    </div>
+  </div>
+</a>
+
       <!-- COOLING -->
       <a href="#" class="post-card" data-cat="cooling" data-status="placeholder">
         <div class="post-card-img" style="background:#eef6ff;">
@@ -529,8 +545,11 @@
       const cat=tab.dataset.cat;
       cards.forEach(card=>{
         const matchesCat = cat==='all' || card.dataset.cat===cat;
+        const isPublished = card.dataset.status==='published';
         const isPlaceholder = card.dataset.status==='placeholder';
-        if(matchesCat && (cat==='all' || !isPlaceholder)){
+        if(cat==='all' && matchesCat){
+          card.style.display='flex';
+        } else if(matchesCat && isPublished){
           card.style.display='flex';
         } else {
           card.style.display='none';

@@ -102,18 +102,18 @@
     .article-meta{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;font-size:0.83rem;color:#8c8780;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid #eeebe4;}
     .article-meta i{color:#e8551a;font-size:0.75rem;}
     .article-meta .author{display:flex;align-items:center;gap:0.5rem;}
-    .share-strip{display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap;margin:0 0 2rem;padding:1rem 1.2rem;background:#faf9f7;border:1px solid #e4e0d8;border-radius:12px;}
-.share-strip span{font-size:0.82rem;font-weight:700;color:#8c8780;text-transform:uppercase;letter-spacing:0.08em;margin-right:0.3rem;}
-.share-btn{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.82rem;font-weight:600;padding:0.4rem 0.9rem;border-radius:50px;text-decoration:none;transition:all 0.15s;border:1.5px solid transparent;}
-.share-btn.facebook{background:#f0f2ff;color:#1877f2;border-color:#dde3ff;}
-.share-btn.facebook:hover{background:#1877f2;color:white;}
-.share-btn.twitter{background:#f0f9ff;color:#000;border-color:#ddf0ff;}
-.share-btn.twitter:hover{background:#000;color:white;}
-.share-btn.linkedin{background:#f0f7ff;color:#0a66c2;border-color:#d6e8ff;}
-.share-btn.linkedin:hover{background:#0a66c2;color:white;}
-.share-btn.copy{background:#f3f0ea;color:#4a4640;border-color:#e4e0d8;cursor:pointer;font-family:inherit;}
-.share-btn.copy:hover{background:#1a1712;color:white;border-color:#1a1712;}
     .author-dot{width:28px;height:28px;background:#e8551a;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:0.7rem;font-weight:700;flex-shrink:0;}
+    .share-strip{display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap;margin:0 0 2rem;padding:1rem 1.2rem;background:#faf9f7;border:1px solid #e4e0d8;border-radius:12px;}
+    .share-strip span{font-size:0.82rem;font-weight:700;color:#8c8780;text-transform:uppercase;letter-spacing:0.08em;margin-right:0.3rem;}
+    .share-btn{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.82rem;font-weight:600;padding:0.4rem 0.9rem;border-radius:50px;text-decoration:none;transition:all 0.15s;border:1.5px solid transparent;}
+    .share-btn.facebook{background:#f0f2ff;color:#1877f2;border-color:#dde3ff;}
+    .share-btn.facebook:hover{background:#1877f2;color:white;}
+    .share-btn.twitter{background:#f0f9ff;color:#000;border-color:#ddf0ff;}
+    .share-btn.twitter:hover{background:#000;color:white;}
+    .share-btn.linkedin{background:#f0f7ff;color:#0a66c2;border-color:#d6e8ff;}
+    .share-btn.linkedin:hover{background:#0a66c2;color:white;}
+    .share-btn.copy{background:#f3f0ea;color:#4a4640;border-color:#e4e0d8;cursor:pointer;font-family:inherit;}
+    .share-btn.copy:hover{background:#1a1712;color:white;border-color:#1a1712;}
 
     /* article body */
     .blog-content h2{font-size:clamp(1.3rem,2.5vw,1.7rem);font-weight:700;letter-spacing:-0.02em;line-height:1.2;margin:2.2rem 0 0.8rem;}
@@ -185,7 +185,7 @@
     .related-card span{font-size:0.78rem;color:#8c8780;}
 
     /* ── SIDEBAR ── */
-    .sidebar{display:flex;flex-direction:column;gap:1.4rem;align-self:stretch;}
+    .sidebar{display:flex;flex-direction:column;gap:1.4rem;align-self:start;}
     @media(max-width:960px){.sidebar{position:relative;top:auto;}}
     .sidebar-card{background:#faf9f7;border:1px solid #eeebe4;border-radius:18px;padding:1.6rem;}
     .sidebar-card h4{font-size:1rem;font-weight:700;margin-bottom:1rem;}
@@ -337,7 +337,7 @@
         <span class="article-eyebrow"><i class="fas fa-snowflake"></i> Cooling</span>
         <h1 class="article-title">How Much Does AC Installation Cost in <em>Saskatoon?</em></h1>
 
-        
+        <div class="article-meta">
           <div class="author">
             <div class="author-dot">A</div>
             <span>AtlasHC Team</span>
@@ -346,13 +346,14 @@
           <span><i class="fas fa-clock"></i> 7 min read</span>
           <span><i class="fas fa-tag"></i> AC Installation</span>
         </div>
+
         <div class="share-strip">
-  <span>Share</span>
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://atlashc.ca/blog/ac-installation-cost-saskatoon" target="_blank" rel="noopener" class="share-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
-  <a href="https://twitter.com/intent/tweet?url=https://atlashc.ca/blog/ac-installation-cost-saskatoon&text=How%20Much%20Does%20AC%20Installation%20Cost%20in%20Saskatoon%3F" target="_blank" rel="noopener" class="share-btn twitter"><i class="fab fa-x-twitter"></i> X</a>
-  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://atlashc.ca/blog/ac-installation-cost-saskatoon" target="_blank" rel="noopener" class="share-btn linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-  <button class="share-btn copy" onclick="navigator.clipboard.writeText('https://atlashc.ca/blog/ac-installation-cost-saskatoon');this.innerHTML='<i class=\'fas fa-check\'></i> Copied!';setTimeout(()=>this.innerHTML='<i class=\'fas fa-link\'></i> Copy Link',2000)"><i class="fas fa-link"></i> Copy Link</button>
-</div>
+          <span>Share</span>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://atlashc.ca/blog/ac-installation-cost-saskatoon" target="_blank" rel="noopener" class="share-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+          <a href="https://twitter.com/intent/tweet?url=https://atlashc.ca/blog/ac-installation-cost-saskatoon&text=How%20Much%20Does%20AC%20Installation%20Cost%20in%20Saskatoon%3F" target="_blank" rel="noopener" class="share-btn twitter"><i class="fab fa-x-twitter"></i> X</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://atlashc.ca/blog/ac-installation-cost-saskatoon" target="_blank" rel="noopener" class="share-btn linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+          <button class="share-btn copy" onclick="navigator.clipboard.writeText('https://atlashc.ca/blog/ac-installation-cost-saskatoon');this.innerHTML='<i class=\'fas fa-check\'></i> Copied!';setTimeout(()=>this.innerHTML='<i class=\'fas fa-link\'></i> Copy Link',2000)"><i class="fas fa-link"></i> Copy Link</button>
+        </div>
 
         <p>It's the question every Saskatoon homeowner Googles the moment spring hits and they realize last summer was way too hot: <strong>how much does it actually cost to install central air conditioning?</strong> The honest answer is — it depends on a handful of factors that move the price significantly. But we'll walk you through exactly what those factors are, what a realistic range looks like in 2025, and what should make you nervous when you're getting quotes.</p>
 

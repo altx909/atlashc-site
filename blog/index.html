@@ -546,10 +546,7 @@
       cards.forEach(card=>{
         const matchesCat = cat==='all' || card.dataset.cat===cat;
         const isPublished = card.dataset.status==='published';
-        const isPlaceholder = card.dataset.status==='placeholder';
-        if(cat==='all' && matchesCat){
-          card.style.display='flex';
-        } else if(matchesCat && isPublished){
+        if(matchesCat && isPublished){
           card.style.display='flex';
         } else {
           card.style.display='none';

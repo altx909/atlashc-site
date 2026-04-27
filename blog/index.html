@@ -326,7 +326,7 @@
     <div class="posts-grid" id="postsGrid">
 
       <!-- HEATING -->
-      <a href="#" class="post-card" data-cat="heating">
+      <a href="#" class="post-card" data-cat="heating" data-status="placeholder">
         <div class="post-card-img" style="background:#f3f0ea;">
           <div class="post-card-img-placeholder"><i class="fas fa-fire"></i></div>
           <span class="post-card-img-cat"><i class="fas fa-fire"></i> Heating</span>
@@ -358,7 +358,7 @@
       </a>
 
       <!-- WATER HEATER -->
-      <a href="#" class="post-card" data-cat="water-heater">
+      <a href="#" class="post-card" data-cat="water-heater" data-status="placeholder">
         <div class="post-card-img" style="background:#fff3ee;">
           <div class="post-card-img-placeholder"><i class="fas fa-fire-burner"></i></div>
           <span class="post-card-img-cat"><i class="fas fa-fire-burner"></i> Water Heater</span>
@@ -374,7 +374,7 @@
       </a>
 
       <!-- PLUMBING -->
-      <a href="#" class="post-card" data-cat="plumbing">
+      <a href="#" class="post-card" data-cat="plumbing" data-status="placeholder">
         <div class="post-card-img" style="background:#f0faf0;">
           <div class="post-card-img-placeholder"><i class="fas fa-wrench"></i></div>
           <span class="post-card-img-cat"><i class="fas fa-wrench"></i> Plumbing</span>
@@ -390,7 +390,7 @@
       </a>
 
       <!-- HEATING 2 -->
-      <a href="#" class="post-card" data-cat="heating">
+      <a href="#" class="post-card" data-cat="heating" data-status="placeholder">
         <div class="post-card-img" style="background:#f3f0ea;">
           <div class="post-card-img-placeholder"><i class="fas fa-thermometer-half"></i></div>
           <span class="post-card-img-cat"><i class="fas fa-fire"></i> Heating</span>
@@ -406,7 +406,7 @@
       </a>
 
       <!-- WATER HEATER 2 -->
-      <a href="#" class="post-card" data-cat="water-heater">
+      <a href="#" class="post-card" data-cat="water-heater" data-status="placeholder">
         <div class="post-card-img" style="background:#fff3ee;">
           <div class="post-card-img-placeholder"><i class="fas fa-tint"></i></div>
           <span class="post-card-img-cat"><i class="fas fa-fire-burner"></i> Water Heater</span>
@@ -528,14 +528,14 @@
       tab.classList.add('active');
       const cat=tab.dataset.cat;
       cards.forEach(card=>{
-  if(cat==='all'){
-    card.style.display='flex';
-  } else if(card.dataset.cat===cat){
-    card.style.display='flex';
-  } else {
-    card.style.display='none';
-  }
-});
+        const matchesCat = cat==='all' || card.dataset.cat===cat;
+        const isPlaceholder = card.dataset.status==='placeholder';
+        if(matchesCat && (cat==='all' || !isPlaceholder)){
+          card.style.display='flex';
+        } else {
+          card.style.display='none';
+        }
+      });
     });
   });
 </script>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>How Did We Do? | AtlasHC</title>
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --orange: #e8551a;
+      --dark: #111009;
+      --green: #22c55e;
+    }
+    html { height: 100%; }
+    body {
+      font-family: 'Familjen Grotesk', sans-serif;
+      background: var(--dark);
+      color: white;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── ATMOSPHERE ── */
+    .atmo {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .atmo-orb1 {
+      position: absolute;
+      width: 800px; height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,85,26,0.12) 0%, transparent 65%);
+      top: -350px; left: -200px;
+      animation: orb 9s ease-in-out infinite alternate;
+    }
+    .atmo-orb2 {
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34,197,94,0.09) 0%, transparent 65%);
+      bottom: -150px; right: -80px;
+      animation: orb 7s ease-in-out 2s infinite alternate;
+    }
+    @keyframes orb {
+      from { transform: scale(1) translate(0,0); opacity: 0.7; }
+      to   { transform: scale(1.08) translate(20px,15px); opacity: 1; }
+    }
+    .atmo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px;
+    }
+
+    /* ── HEADER ── */
+    .hdr {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 20;
+      padding: 1.3rem 2rem;
+      display: flex;
+      justify-content: center;
+    }
+    .logo { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.03em; color: rgba(255,255,255,0.8); text-decoration: none; }
+    .logo b { color: var(--orange); }
+
+    /* ── WRAP ── */
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 540px;
+      padding: 5.5rem 1.4rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.8rem;
+    }
+
+    /* ── HEADLINE ── */
+    .head {
+      text-align: center;
+      animation: emerge 0.9s cubic-bezier(0.16,1,0.3,1) both;
+    }
+    .head h1 {
+      font-size: clamp(2rem, 7vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.06;
+      margin-bottom: 1rem;
+    }
+    .head h1 em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--orange);
+    }
+    .head-body {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.42);
+      line-height: 1.75;
+      max-width: 390px;
+      margin: 0 auto 0.55rem;
+    }
+    .head-small {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.18);
+      letter-spacing: 0.02em;
+    }
+    @keyframes emerge {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── GRID ──
+       Always 2 columns. sad=0.7fr (left), happy=1fr (right)
+    ── */
+    .grid {
+      display: grid;
+      grid-template-columns: 0.7fr 1fr;
+      gap: 1rem;
+      width: 100%;
+      align-items: stretch;
+    }
+
+    /* ── BASE CARD ── */
+    .card {
+      border-radius: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      animation: emerge 0.9s cubic-bezier(0.16,1,0.3,1) both;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: rgba(255,255,255,0.055);
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+    .card:active::before { opacity: 1; }
+
+    /* ── SAD — smaller, quieter, left ── */
+    .card.sad {
+      padding: 1.8rem 1rem;
+      background: radial-gradient(ellipse 80% 55% at 50% 0%, rgba(239,68,68,0.07) 0%, transparent 70%),
+                  linear-gradient(170deg, #1e1010 0%, #130a0a 100%);
+      border: 1px solid rgba(239,68,68,0.1);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.55);
+      animation-delay: 0.14s;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+    }
+    .card.sad:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 52px rgba(0,0,0,0.5), 0 0 0 1px rgba(239,68,68,0.18);
+    }
+
+    /* ── HAPPY — larger, alive, right ── */
+    .card.happy {
+      padding: 2.6rem 1.4rem 2.4rem;
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(34,197,94,0.14) 0%, transparent 70%),
+                  linear-gradient(170deg, #122012 0%, #0a160a 100%);
+      border: 1px solid rgba(34,197,94,0.22);
+      animation-delay: 0.06s;
+      animation: emerge 0.9s cubic-bezier(0.16,1,0.3,1) 0.06s both,
+                 card-float 3.8s ease-in-out 1.4s infinite;
+    }
+    @keyframes card-float {
+      0%, 100% {
+        transform: translateY(0);
+        box-shadow: 0 16px 50px rgba(0,0,0,0.55), 0 0 0 0 rgba(34,197,94,0.2);
+      }
+      50% {
+        transform: translateY(-9px);
+        box-shadow: 0 30px 70px rgba(0,0,0,0.45), 0 0 30px 5px rgba(34,197,94,0.06);
+      }
+    }
+    .card.happy:hover {
+      animation: none;
+      transform: translateY(-11px) scale(1.025);
+      box-shadow: 0 38px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(34,197,94,0.45), 0 0 50px rgba(34,197,94,0.1);
+      transition: transform 0.38s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.38s;
+    }
+
+    /* ── EMOJI ── */
+    .emoji {
+      display: block;
+      line-height: 1;
+      margin-bottom: 1.1rem;
+    }
+    .card.happy .emoji {
+      font-size: 3.8rem;
+      filter: drop-shadow(0 6px 22px rgba(34,197,94,0.45));
+      animation: bounce 2.4s cubic-bezier(0.34,1.56,0.64,1) 1.2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0) rotate(-3deg) scale(1); }
+      38%       { transform: translateY(-18px) rotate(4deg) scale(1.1); }
+      68%       { transform: translateY(-7px) rotate(-2deg) scale(1.04); }
+    }
+    .card.sad .emoji {
+      font-size: 2.6rem;
+      filter: drop-shadow(0 3px 12px rgba(239,68,68,0.22));
+      animation: sway 5s ease-in-out 1.2s infinite;
+    }
+    @keyframes sway {
+      0%, 100% { transform: rotate(0deg); }
+      30%       { transform: rotate(-5deg); }
+      70%       { transform: rotate(5deg); }
+    }
+
+    /* ── LABEL ── */
+    .card.happy .lbl { font-size: 0.97rem; font-weight: 700; color: #86efac; letter-spacing: -0.01em; }
+    .card.sad .lbl   { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.26); }
+
+    /* ── HOVER HINT ── */
+    .hint {
+      position: absolute;
+      bottom: 0.85rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(5px);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.28rem;
+    }
+    .card.happy .hint { color: rgba(134,239,172,0.45); }
+    .card.sad .hint   { color: rgba(255,255,255,0.16); }
+    .card:hover .hint { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ── FOOT ── */
+    .foot {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.1);
+      text-align: center;
+      animation: emerge 0.9s ease 0.3s both;
+    }
+    .foot a { color: rgba(255,255,255,0.13); text-decoration: none; }
+    .foot a:hover { color: var(--orange); }
+  </style>
+</head>
+<body>
+
+<div class="atmo">
+  <div class="atmo-orb1"></div>
+  <div class="atmo-orb2"></div>
+</div>
+
+<header class="hdr">
+  <a href="/" class="logo">Atlas<b>HC</b></a>
+</header>
+
+<div class="wrap">
+
+  <div class="head">
+    <h1>How Did We <em>Do?</em></h1>
+    <p class="head-body">Your feedback takes 30 seconds and genuinely helps us improve — and helps other Saskatoon homeowners find a team they can trust.</p>
+    <p class="head-small">Tap whichever one feels right.</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- SAD — LEFT, smaller, harder to reach for right-handers -->
+    <a href="https://api.atlashc.ca/widget/survey/1rZMDuij1iDBHkP61q8y"
+       target="_blank"
+       rel="noopener"
+       class="card sad"
+       id="card-sad">
+      <span class="emoji">😔</span>
+      <span class="lbl">Not quite</span>
+      <span class="hint">
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Continue
+      </span>
+    </a>
+
+    <!-- HAPPY — RIGHT, dominant, natural thumb zone -->
+    <a href="https://g.page/r/CdRTJr5lwJz_EBE/review"
+       target="_blank"
+       rel="noopener"
+       class="card happy"
+       id="card-happy">
+      <span class="emoji">😄</span>
+      <span class="lbl">Really happy</span>
+      <span class="hint">
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Continue
+      </span>
+    </a>
+
+  </div>
+
+  <p class="foot">
+    <a href="/">atlashc.ca</a> &nbsp;·&nbsp;
+    <a href="tel:+13068015053">(306) 801-5053</a>
+  </p>
+
+</div>
+
+<script>
+  function track(n, p) {
+    p = Object.assign({ page: '/review' }, p || {});
+    if (typeof zaraz !== 'undefined') zaraz.track(n, p);
+    if (typeof window.dataLayer !== 'undefined') window.dataLayer.push(Object.assign({ event: n }, p));
+    if (typeof gtag !== 'undefined') gtag('event', n, p);
+  }
+  document.getElementById('card-happy').addEventListener('click', function() {
+    track('review_positive', { event_category: 'Review Filter', destination: 'google' });
+  });
+  document.getElementById('card-sad').addEventListener('click', function() {
+    track('review_negative', { event_category: 'Review Filter', destination: 'feedback_form' });
+  });
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() { navigator.serviceWorker.register('/sw.js'); });
+  }
+</script>
+
+</body>
+</html>

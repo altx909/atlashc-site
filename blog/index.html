@@ -538,28 +538,23 @@
   // Category filter
   const tabs=document.querySelectorAll('.cat-tab');
   const cards=document.querySelectorAll('.post-card');
+
   function filterCards(cat){
     tabs.forEach(t=>t.classList.remove('active'));
-    document.querySelector(`[data-cat="${cat}"]`)?.classList.add('active');
+    tabs.forEach(t=>{ if(t.dataset.cat===cat) t.classList.add('active'); });
     cards.forEach(card=>{
       const matchesCat = cat==='all' || card.dataset.cat===cat;
       const isPublished = card.dataset.status==='published';
-      if(matchesCat && isPublished){
-        card.style.display='flex';
-      } else {
-        card.style.display='none';
-      }
+      card.style.display = (matchesCat && isPublished) ? 'flex' : 'none';
     });
   }
 
-  // Run on page load
+  // Run on page load — only show published
   filterCards('all');
 
   tabs.forEach(tab=>{
-    tab.addEventListener('click',()=>{
-      filterCards(tab.dataset.cat);
-      });
-    });
+    tab.addEventListener('click',()=>{ filterCards(tab.dataset.cat); });
+  });
   });
 </script>
 

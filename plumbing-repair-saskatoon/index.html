@@ -991,18 +991,52 @@
   document.getElementById('pwa-later-ios').addEventListener('click', dismiss);
   document.getElementById('pwa-overlay').addEventListener('click', dismiss);
 
+  // ── TRACKING HELPER ──────────────────────────────────────────
+  function trackPWA(eventName, params) {
+    params = params || {};
+    params.event_category = 'PWA';
+    if (typeof zaraz !== 'undefined') zaraz.track(eventName, params);
+    if (typeof window.dataLayer !== 'undefined') window.dataLayer.push(Object.assign({ event: eventName }, params));
+    if (typeof gtag !== 'undefined') gtag('event', eventName, params);
+  }
+
+  // Track: opened from home screen
+  if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+    trackPWA('pwa_open', { source: 'home_screen', page: window.location.pathname });
+  }
+
+  // Track: confirmed install
+  window.addEventListener('appinstalled', function() {
+    trackPWA('pwa_installed', { device: isIOS ? 'ios' : 'android', page: window.location.pathname });
+  });
+
   // Android install button
   document.getElementById('pwa-install-btn').addEventListener('click', async () => {
     if (deferredPrompt) {
       deferredPrompt.prompt();
       const { outcome } = await deferredPrompt.userChoice;
       deferredPrompt = null;
+      trackPWA(outcome === 'accepted' ? 'pwa_prompt_accepted' : 'pwa_prompt_dismissed', {
+        device: 'android', page: window.location.pathname
+      });
     }
     dismiss();
   });
 
-  // Show after delay
-  setTimeout(showSheet, DELAY_MS);
+  // iOS — track intent
+  document.getElementById('pwa-later-ios').addEventListener('click', function() {
+    trackPWA('pwa_ios_instructed', { device: 'ios', page: window.location.pathname });
+  });
+
+  // Show after delay + track prompt shown
+  setTimeout(function() {
+    showSheet();
+    trackPWA('pwa_prompt_shown', {
+      device: isIOS ? 'ios' : 'android',
+      page: window.location.pathname,
+      utm_source: new URLSearchParams(window.location.search).get('utm_source') || 'organic'
+    });
+  }, DELAY_MS);
 })();
 </script>
 </html>

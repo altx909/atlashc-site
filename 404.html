@@ -632,7 +632,7 @@
 
 <header class="header">
   <a href="/" class="logo">Atlas<span>HC</span></a>
-  <a href="tel:+13068015053" class="header-call"><i class="fas fa-phone-alt"></i> (306) 801-5053</a>
+  <a href="tel:+13068015053" onclick="if(typeof zaraz!=='undefined')zaraz.track('click_to_call',{page:window.location.pathname});if(typeof gtag!=='undefined')gtag('event','click_to_call',{page:window.location.pathname});" class="header-call"><i class="fas fa-phone-alt"></i> (306) 801-5053</a>
 </header>
 
 <!-- bg blobs -->
@@ -732,7 +732,7 @@
     </p>
     <div class="error-btns">
       <a href="/" class="btn-primary"><i class="fas fa-home"></i> Back to Home</a>
-      <a href="tel:+13068015053" class="btn-outline"><i class="fas fa-phone-alt"></i> Call Us Instead</a>
+      <a href="tel:+13068015053" onclick="if(typeof zaraz!=='undefined')zaraz.track('click_to_call',{page:window.location.pathname});if(typeof gtag!=='undefined')gtag('event','click_to_call',{page:window.location.pathname});" class="btn-outline"><i class="fas fa-phone-alt"></i> Call Us Instead</a>
     </div>
     <div class="quick-links">
       <a href="/furnace-repair-saskatoon" class="ql">Furnace Repair</a>

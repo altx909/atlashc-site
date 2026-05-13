@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Your New Website — Laureen Bakes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&family=Cormorant+Garamond:wght@400;600&family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;600&family=Pacifico&family=Lato:wght@300;400&family=Source+Sans+Pro:wght@300;400&family=Libre+Baskerville:wght@400&family=Nunito:wght@300;400&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #ffffff; color: #1a1a1a; -webkit-font-smoothing: antialiased; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.4s ease forwards; }
+    input, textarea, select { font-family: inherit; }
+    input:focus, textarea:focus { border-color: #C2185B !important; outline: none; box-shadow: 0 0 0 3px rgba(194,24,91,0.08); }
+    input[type="range"] { -webkit-appearance: none; appearance: none; height: 4px; border-radius: 99px; background: #e5e7eb; outline: none; cursor: pointer; }
+    input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #C2185B; cursor: pointer; border: 2px solid white; box-shadow: 0 1px 4px rgba(0,0,0,0.15); }
+    input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: #C2185B; cursor: pointer; border: 2px solid white; }
+    button { font-family: inherit; cursor: pointer; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #fafafa; }
+    ::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 3px; }
+    .progress-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid #f0f0f0; padding: 12px 24px; }
+    .progress-inner { max-width: 640px; margin: 0 auto; display: flex; align-items: center; gap: 14px; }
+    .progress-track { flex: 1; height: 4px; background: #e5e7eb; border-radius: 99px; overflow: hidden; }
+    .progress-fill { height: 100%; background: #C2185B; border-radius: 99px; transition: width 0.4s ease; }
+    .progress-label { font-size: 12px; color: #9ca3af; white-space: nowrap; }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 80px 24px 60px; }
+    .wrap.welcome { padding-top: 100px; text-align: center; }
+    .section-emoji { font-size: 36px; margin-bottom: 12px; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: 30px; font-weight: 400; color: #1a1a1a; margin-bottom: 8px; line-height: 1.15; }
+    .section-sub { font-size: 16px; color: #6b7280; line-height: 1.6; margin-bottom: 32px; }
+    .field { margin-bottom: 28px; }
+    .field-label { display: block; font-size: 14px; font-weight: 500; color: #374151; margin-bottom: 10px; }
+    .input { width: 100%; padding: 12px 16px; border-radius: 12px; border: 1.5px solid #e5e7eb; font-size: 15px; color: #1a1a1a; background: #fff; transition: border-color 0.15s, box-shadow 0.15s; }
+    .textarea { width: 100%; padding: 12px 16px; border-radius: 12px; border: 1.5px solid #e5e7eb; font-size: 15px; color: #1a1a1a; background: #fff; resize: vertical; min-height: 110px; line-height: 1.65; transition: border-color 0.15s, box-shadow 0.15s; }
+    .card { border: 2px solid #e5e7eb; border-radius: 16px; padding: 16px 20px; cursor: pointer; background: #fff; transition: all 0.18s ease; user-select: none; }
+    .card:hover { border-color: #C2185B; background: #fff9fb; }
+    .card.selected { border-color: #C2185B; background: #FCE4EC; }
+    .chip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 999px; border: 1.5px solid #e5e7eb; background: #fff; color: #1a1a1a; cursor: pointer; font-size: 14px; font-weight: 400; transition: all 0.15s; user-select: none; font-family: inherit; }
+    .chip:hover { border-color: #C2185B; }
+    .chip.selected { border-color: #C2185B; background: #FCE4EC; color: #880E4F; font-weight: 600; }
+    .btn-primary { background: #C2185B; color: #fff; border: none; border-radius: 12px; padding: 14px 32px; font-size: 15px; font-weight: 600; transition: opacity 0.15s, transform 0.1s; }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-primary:disabled { opacity: 0.65; cursor: not-allowed; }
+    .btn-secondary { background: transparent; color: #6b7280; border: 1.5px solid #e5e7eb; border-radius: 12px; padding: 13px 24px; font-size: 14px; transition: border-color 0.15s; }
+    .btn-secondary:hover { border-color: #9ca3af; }
+    .nav { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 24px; border-top: 1px solid #e5e7eb; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .grid-2-lg { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .notice { background: #FCE4EC; border-radius: 16px; padding: 20px 24px; margin-bottom: 28px; }
+    .notice p { font-size: 15px; color: #880E4F; line-height: 1.6; }
+    @media (max-width: 520px) {
+      .grid-2, .grid-2-lg { grid-template-columns: 1fr; }
+      .wrap { padding-left: 16px; padding-right: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    const FORMSPREE = "https://formspree.io/f/mzdoqddr";
+
+    const palettes = [
+      { name: "Warm Bakery",    colors: ["#F5E6C8","#E8B89A","#C97B5A","#8B4513","#3D1A08"], mood: "Cozy, nostalgic, homemade" },
+      { name: "Soft Bloom",     colors: ["#FFF0F5","#FFD6E7","#FFB3CC","#E8789A","#C2185B"], mood: "Feminine, elegant, sweet" },
+      { name: "Fresh & Clean",  colors: ["#F0FAF4","#C8EDDA","#7DCFAD","#2D9C6E","#1A5E42"], mood: "Healthy, fresh, natural" },
+      { name: "Earthy Sage",    colors: ["#F5F0E8","#DDD5C0","#B8A888","#8A7A5A","#4A3D28"], mood: "Organic, grounded, artisan" },
+      { name: "Bold Confetti",  colors: ["#FFF8E7","#FFE066","#FF7F50","#C2185B","#2D2D5E"], mood: "Playful, vibrant, fun" },
+    ];
+
+    const vibes = [
+      { id: "warm",    label: "Warm & Cozy",      desc: "Cream tones, script fonts, feels like a hug",        icon: "🫖", bg: "#FDF6EC", accent: "#C97B5A" },
+      { id: "modern",  label: "Modern & Clean",    desc: "White space, bold type, sleek and polished",          icon: "✦", bg: "#F8F8F8", accent: "#1a1a1a" },
+      { id: "playful", label: "Playful & Fun",     desc: "Bright colors, rounded shapes, full of energy",       icon: "🎉", bg: "#FFF0F5", accent: "#E8789A" },
+      { id: "rustic",  label: "Rustic & Artisan",  desc: "Earthy textures, natural tones, handcrafted feel",    icon: "🌿", bg: "#F5F0E8", accent: "#8A7A5A" },
+    ];
+
+    const fontPairs = [
+      { id: "fp1", display: "Cormorant Garamond", body: "Lato",             label: "Elegant & Refined"   },
+      { id: "fp2", display: "Playfair Display",   body: "Source Sans Pro",  label: "Classic & Trustworthy" },
+      { id: "fp3", display: "Josefin Sans",       body: "Libre Baskerville",label: "Modern & Timeless"   },
+      { id: "fp4", display: "Pacifico",           body: "Nunito",           label: "Friendly & Warm"     },
+    ];
+
+    const customers = [
+      { id: "moms",    label: "Moms & Families",   icon: "👨‍👩‍👧" },
+      { id: "health",  label: "Health-Conscious",   icon: "🥗" },
+      { id: "gifters", label: "Gift Buyers",         icon: "🎁" },
+      { id: "events",  label: "Event Planners",      icon: "🎂" },
+      { id: "dietary", label: "Dietary Needs",       icon: "💚" },
+      { id: "local",   label: "Local Community",     icon: "🏘️" },
+    ];
+
+    const goals = [
+      { id: "orders", label: "Get more orders online",     icon: "🛒" },
+      { id: "brand",  label: "Build brand awareness",       icon: "✨" },
+      { id: "wom",    label: "Replace word-of-mouth",       icon: "📣" },
+      { id: "reach",  label: "Reach new customers",         icon: "🌍" },
+      { id: "all",    label: "All of the above!",            icon: "🚀" },
+    ];
+
+    const addons = [
+      { id: "branding", label: "Branding Package",       desc: "Logo, colors, fonts, business card & flyer",           price: "$699 one-time" },
+      { id: "crm",      label: "Smart CRM",              desc: "Automated follow-ups, upsell & win-back campaigns",     price: "$490/mo" },
+      { id: "reviews",  label: "Reviews & Reputation",   desc: "AI review replies, filter page & campaigns",           price: "$287/mo" },
+      { id: "chatbot",  label: "AI Chatbot",             desc: "24/7 order-taking on website + Facebook + Instagram",   price: "$97/mo" },
+      { id: "ads",      label: "Paid Advertising",       desc: "Google, Facebook, Instagram & YouTube ads",             price: "From $499/mo" },
+    ];
+
+    const TOTAL_STEPS = 12;
+
+    const emptyForm = {
+      contactName: "", contactEmail: "", contactPhone: "",
+      businessName: "", tagline: "", story: "",
+      customers: [], vibe: "", palette: "", font: "",
+      categories: ["Cookies","Cookie Cakes","Keto Items","Keto Special Orders","Diabetic-Friendly Items","Gluten-Free Items"],
+      photosReady: {}, specialOrders: "", pricingVisibility: "",
+      fulfillment: [], leadTime: "48", serviceArea: "", payments: [],
+      facebook: "", instagram: "", existingWebsite: "", googleBusiness: "",
+      primaryGoal: "", addonsInterest: [],
+      inspirationSites: ["","",""], anythingElse: "",
+    };
+
+    function App() {
+      const [step, setStep]           = useState(0);
+      const [form, setForm]           = useState(emptyForm);
+      const [submitting, setSubmitting] = useState(false);
+
+      const progress = step === 0 ? 0 : step >= TOTAL_STEPS ? 100 : Math.round((step / TOTAL_STEPS) * 100);
+
+      const set    = (k, v) => setForm(f => ({ ...f, [k]: v }));
+      const toggle = (k, v) => setForm(f => ({
+        ...f,
+        [k]: f[k].includes(v) ? f[k].filter(x => x !== v) : [...f[k], v],
+      }));
+      const next = () => { window.scrollTo({ top: 0, behavior: "smooth" }); setStep(s => s + 1); };
+      const prev = () => { window.scrollTo({ top: 0, behavior: "smooth" }); setStep(s => s - 1); };
+
+      const handleSubmit = async () => {
+        setSubmitting(true);
+        try {
+          await fetch(FORMSPREE, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: JSON.stringify({
+              ...form,
+              customers:       form.customers.join(", "),
+              fulfillment:     form.fulfillment.join(", "),
+              payments:        form.payments.join(", "),
+              addonsInterest:  form.addonsInterest.join(", "),
+              categories:      form.categories.join(", "),
+              photosReady:     Object.entries(form.photosReady).map(([k,v]) => `${k}: ${v}`).join(" | "),
+              inspirationSites: form.inspirationSites.filter(Boolean).join(", "),
+            }),
+          });
+          next();
+        } catch {
+          alert("Something went wrong. Please try again or email marketing@altxmedia.com");
+        }
+        setSubmitting(false);
+      };
+
+      return (
+        <div>
+          {step > 0 && step < TOTAL_STEPS + 1 && (
+            <div className="progress-bar">
+              <div className="progress-inner">
+                <span className="progress-label">{progress}%</span>
+                <div className="progress-track">
+                  <div className="progress-fill" style={{ width: `${progress}%` }} />
+                </div>
+                <span className="progress-label">Step {step} of {TOTAL_STEPS}</span>
+              </div>
+            </div>
+          )}
+
+          {step === 0  && <Welcome onNext={next} />}
+          {step === 1  && <About form={form} set={set} onNext={next} />}
+          {step === 2  && <Customers form={form} toggle={toggle} onNext={next} onPrev={prev} />}
+          {step === 3  && <Vibe form={form} set={set} onNext={next} onPrev={prev} />}
+          {step === 4  && <Palette form={form} set={set} onNext={next} onPrev={prev} />}
+          {step === 5  && <Fonts form={form} set={set} onNext={next} onPrev={prev} />}
+          {step === 6  && <Products form={form} set={set} toggle={toggle} onNext={next} onPrev={prev} />}
+          {step === 7  && <Operations form={form} set={set} toggle={toggle} onNext={next} onPrev={prev} />}
+          {step === 8  && <Social form={form} set={set} onNext={next} onPrev={prev} />}
+          {step === 9  && <Goals form={form} set={set} onNext={next} onPrev={prev} />}
+          {step === 10 && <Addons form={form} toggle={toggle} onNext={next} onPrev={prev} />}
+          {step === 11 && <Final form={form} set={set} onPrev={prev} onSubmit={handleSubmit} submitting={submitting} />}
+          {step === 12 && <ThankYou />}
+        </div>
+      );
+    }
+
+    /* ── WELCOME ── */
+    function Welcome({ onNext }) {
+      return (
+        <div className="wrap welcome fade-up">
+          <div style={{ fontSize: 56, marginBottom: 20 }}>🍪</div>
+          <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 44, fontWeight: 400, color: "#1a1a1a", marginBottom: 16, lineHeight: 1.1 }}>
+            Welcome, Laureen!
+          </h1>
+          <p style={{ fontSize: 18, color: "#6b7280", lineHeight: 1.7, marginBottom: 12 }}>
+            We're so excited to build your online home.
+          </p>
+          <p style={{ fontSize: 16, color: "#6b7280", lineHeight: 1.7, maxWidth: 460, margin: "0 auto 48px" }}>
+            This form helps us get to know you — your style, your products, and what matters most.
+            It takes about <strong style={{ color: "#1a1a1a" }}>10–15 minutes</strong>, and there are no wrong answers.
+          </p>
+          <button className="btn-primary" style={{ fontSize: 17, padding: "16px 44px", borderRadius: 14 }} onClick={onNext}>
+            Let's get started →
+          </button>
+          <p style={{ marginTop: 20, fontSize: 13, color: "#9ca3af" }}>
+            Questions? <a href="mailto:marketing@altxmedia.com" style={{ color: "#C2185B" }}>marketing@altxmedia.com</a>
+          </p>
+        </div>
+      );
+    }
+
+    /* ── ABOUT ── */
+    function About({ form, set, onNext }) {
+      return (
+        <div className="wrap fade-up">
+          <SectionHeader emoji="✍️" title="Tell us about Laureen Bakes" sub="Let's start with the basics. Don't overthink it — just be yourself!" />
+          <div className="field">
+            <label className="field-label">Your full name</label>
+            <input className="input" placeholder="Your name" value={form.contactName} onChange={e => set("contactName", e.target.value)} />
+          </div>
+          <div className="grid-2-lg">
+            <div className="field">
+              <label className="field-label">Best email</label>
+              <input className="input" type="email" placeholder="your@email.com" value={form.contactEmail} onChange={e => set("contactEmail", e.target.value)} />
+            </div>
+            <div className="field">
+              <label className="field-label">Phone number</label>
+              <input className="input" type="tel" placeholder="(306) 000-0000" value={form.contactPhone} onChange={e => set("contactPhone", e.target.value)} />
+            </div>
+          </div>
+          <div className="field">
+            <label className="field-label">What's your full business name?</label>
+            <input className="input" placeholder="e.g. Laureen Bakes" value={form.businessName} onChange={e => set("businessName", e.target.value)} />
+          </div>
+          <div className="field">
+            <label className="field-label">Do you have a tagline? (totally optional)</label>
+            <input className="input" placeholder="e.g. Baked with love, delivered fresh" value={form.tagline} onChange={e => set("tagline", e.target.value)} />
+          </div>
+          <div className="field">
+            <label className="field-label">Tell us a little about you and why you started baking ✨</label>
+            <textarea className="textarea" placeholder="What's your story? What makes your baking special?" value={form.story} onChange={e => set("story", e.target.value)} />
+          </div>
+          <div className="nav">
+            <div />
+            <button className="btn-primary" onClick={onNext}>Continue →</button>
+          </div>
+        </div>
+      );
+    }
+
+    /* ── CUSTOMERS ── */
+    function Customers({ form, toggle, onNext, onPrev }) {
+      return (
+        <div className="wrap fade-up">
+          <SectionHeader emoji="👥" title="Who do you bake for?" sub="Select all that apply — who are your customers?" />
+          <div className="grid-2" style={{ marginBottom: 8 }}>
+            {customers.map(c => (
+              <div key={c.id} className={`card${form.customers.includes(c.id) ? " selected" : ""}`} onClick={() => toggle("customers", c.id)}>
+                <div style={{ fontSize: 28, marginBottom: 8 }}>{c.icon}</div>
+                <div style={{ fontWeight: 500, fontSize: 15 }}>{c.label}</div>
+              </div>
+            ))}
+          </div>
+          <Nav onNext={onNext} onPrev={onPrev} />
+        </div>
+      );
+    }
+
+    /* ── VIBE ── */
+    function Vibe({ form, set, onNext, onPrev }) {
+      return (
+        <div className="wrap fade-up">
+          <SectionHeader emoji="🎨" title="What's your vibe?" sub="How do you want your website to feel? Pick the one that resonates most." />
+          <div className="grid-2" style={{ marginBottom: 8 }}>
+            {vibes.map(v => (
+              <div key={v.id} className={`card${form.vibe === v.id ? " selected" : ""}`} onClick={() => set("vibe", v.id)} style={{ overflow: "hidden" }}>
+                <div style={{ height: 72, background: v.bg, borderRadius: 10, marginBottom: 14, padding: 12, display: "flex", flexDirection: "column", gap: 6 }}>
+                  <div style={{ height: 8, width: "60%", borderRadius: 4, background: v.accent, opacity: 0.8 }} />
+                  <div style={{ height: 5, width: "80%", borderRadius: 3, background: v.accent, opacity: 0.3 }} />
+                  <div style={{ height: 5, width: "55%", borderRadius: 3, background: v.accent, opacity: 0.2 }} />
+                  <div style={{ marginTop: "auto", height: 16, width: 64, borderRadius: 4, background: v.accent, opacity: 0.7 }} />
+                </div>
+                <div style={{ fontSize: 22, marginBottom: 4 }}>{v.icon}</div>
+                <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 4 }}>{v.label}</div>
+                <div style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.4 }}>{v.desc}</div>
+              </div>
+            ))}
+          </div>
+          <Nav onNext={onNext} onPrev={onPrev} />
+        </div>
+      );
+    }
+
+    /* ── PALETTE ── */
+    function Palette({ form, set, onNext, onPrev }) {
+      return (
+        <div className="wrap fade-up">
+          <SectionHeader emoji="🌈" title="Choose your colors" sub="These are award-winning color combinations. Which one feels like you?" />
+          <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 8 }}>
+            {palettes.map(p => (
+              <div key={p.name} className={`card${form.palette === p.name ? " selected" : ""}`}
+                style={{ display: "flex", alignItems: "center", gap: 20 }}
+                onClick={() => set("palette", p.name)}>
+                <div style={{ display: "flex", gap: 7, flexShrink: 0 }}>
+                  {p.colors.map((c, i) => (
+                    <div key={i} style={{ width: 34, height: 34, borderRadius: "50%", background: c, border: "1.5px solid rgba(0,0,0,0.07)" }} />
+                  ))}
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 2 }}>{p.name}</div>
+                  <div style={{ fontSize: 13, color: "#6b7280" }}>{p.mood}</div>
+                </div>
+                {form.palette === p.name && <div style={{ color: "#C2185B", fontSize: 20, flexShrink: 0 }}>✓</div>}
+              </div>
+            ))}
+          </div>
+          <p style={{ fontSize: 13, color: "#9ca3af", marginBottom: 8 }}>Don't worry — these are starting points. We'll refine together.</p>
+          <Nav onNext={onNext} onPrev={onPrev} />
+        </div>
+      );
+    }
+
+    /* ── FONTS ── */
+    function Fonts({ form, set, onNext, onPrev }) {
+      return (
+        <div className="wrap fade-up">
+          <SectionHeader emoji="✍️" title="Pick your font personality" sub="See your business name in four different styles. Which feels most like you?" />
+          <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 8 }}>
+            {fontPairs.map(fp => (
+              <div key={fp.id} className={`card${form.font === fp.id ? " selected" : ""}`} onClick={() => set("font", fp.id)}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+                  <div>
+                    <div style={{ fontFamily: `'${fp.display}', serif`, fontSize: 28, fontWeight: 600, marginBottom: 5, lineHeight: 1.1, color: "#1a1a1a" }}>
+                      Laureen Bakes
+                    </div>
+                    <div style={{ fontFamily: `'${fp.body}', sans-serif`, fontSize: 13, color: "#6b7280", fontWeight: 300 }}>
+                      Fresh baked goods, made with love in Saskatoon
+                    </div>
+                  </div>
+                  <div style={{ flexShrink: 0, marginLeft: 16, fontSize: 12, fontWeight: 600, color: form.font === fp.id ? "#C2185B" : "#9ca3af", textAlign: "right" }}>
+                    {fp.label}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <Nav onNext={onNext} onPrev={onPrev} />
+        </div>
+      );
+    }
+
+    /* ── PRODUCTS ── */
+    function Products({ form, set, toggle, onNext, onPrev }) {
+      const updateCat = (i, val) => {
+        const cats = [...form.categories];
+        cats[i] = val;
+        set("categories", cats);
+      };
+      return (
+        <div className="wrap fade-up">
+          <SectionHeader emoji="🍰" title="Your products" sub="Let's get a feel for your lineup. Edit category names if needed." />
+          <div className="field">
+            <label className="field-label">Your categories — and are photos ready for each?</label>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {form.categories.map((cat, i) => (
+                <div key={i} style={{ background: "#fafafa", border: "1.5px solid #e5e7eb", borderRadius: 12, padding: "12px 16px" }}>
+                  <input style={{ width: "100%", border: "none", background: "transparent", fontSize: 15, fontWeight: 500, color: "#1a1a1a", outline: "none", marginBottom: 10, fontFamily: "inherit" }}
+                    value={cat} onChange={e => updateCat(i, e.target.value)} />
+                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                    <span style={{ fontSize: 13, color: "#6b7280", alignSelf: "center", marginRight: 4 }}>Photos ready?</span>
+                    {["Yes ✓", "Not yet", "Need help"].map(opt => (
+                      <button key={opt} className={`chip${form.photosReady[cat] === opt ? " selected" : ""}`}
+                        onClick={() => set("photosReady", { ...form.photosReady, [cat]: opt })}>
+                        {opt}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="field">
+            <label className="field-label">How do you want to handle special orders?</label>
+            {["Accept through a form on the website", "Customers contact me directly", "Not offering special orders yet"].map(opt => (
+              <div key={opt} className={`card${form.specialOrders === opt ? " selected" : ""}`}
+                style={{ marginBottom: 10, padding: "13px 18px" }} onClick={() => set("specialOrders", opt)}>
+                <span style={{ fontSize: 14 }}>{opt}</span>
+              </div>
+            ))}
+          </div>
+          <div className="field">
+            <label className="field-label">Pricing visibility</label>
+            {["Show all prices publicly", "Some items show 'Contact for pricing'", "I'll decide this later"].map(opt => (
+              <div key={opt} className={`card${form.pricingVisibility === opt ? " selected" : ""}`}
+                style={{ marginBottom: 10, padding: "13px 18px" }} onClick={() => set("pricingVisibility", opt)}>
+                <span style={{ fontSize: 14 }}>{opt}</span>
+              </div>
+            ))}
+          </div>
+          <Nav onNext={onNext} onPrev={onPrev} />
+        </div>
+      );
+    }
+
+    /* ── OPERATIONS ── */
+    function Operations({ form, set, toggle, onNext, onPrev }) {
+      const hours = parseInt(form.leadTime);
+      const leadLabel = hours < 24 ? `${hours} hours` : hours === 24 ? "1 day" : hours < 168 ? `${Math.round(hours/24)} days` : "1 week+";
+      return (
+        <div className="wrap fade-up">
+          <SectionHeader emoji="🚗" title="How you work" sub="Help us understand how orders actually work for you." />
+          <div className="field">
+            <label className="field-label">How will customers receive their orders? (select all that apply)</label>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+              {["Delivery", "Pickup", "Both"].map(opt => (
+                <button key={opt} className={`chip${form.fulfillment.includes(opt) ? " selected" : ""}`} onClick={() => toggle("fulfillment", opt)}>{opt}</button>
+              ))}
+            </div>
+          </div>
+          <div className="field">
+            <label className="field-label">How much advance notice do you need? — <strong style={{ color: "#C2185B" }}>{leadLabel}</strong></label>
+            <input type="range" min="12" max="168" step="12" value={form.leadTime}
+              onChange={e => set("leadTime", e.target.value)} style={{ width: "100%", marginBottom: 6 }} />
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "#9ca3af" }}>
+              <span>12 hrs</span><span>2 days</span><span>5 days</span><span>1 week+</span>
+            </div>
+          </div>
+          <div className="field">
+            <label className="field-label">Service area</label>
+            <input className="input" placeholder="e.g. All of Saskatoon, or specific neighbourhoods" value={form.serviceArea} onChange={e => set("serviceArea", e.target.value)} />
+          </div>
+          <div className="field">
+            <label className="field-label">Payment methods you want to accept (select all that apply)</label>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+              {["Credit / Debit Card", "E-Transfer", "Cash on Pickup", "PayPal"].map(opt => (
+                <button key={opt} className={`chip${form.payments.includes(opt) ? " selected" : ""}`} onClick={() => toggle("payments", opt)}>{opt}</button>
+              ))}
+            </div>
+          </div>
+          <Nav onNext={onNext} onPrev={onPrev} />
+        </div>
+      );
+    }
+
+    /* ── SOCIAL ── */
+    function Social({ form, set, onNext, onPrev }) {
+      return (
+        <div className="wrap fade-up">
+          <SectionHeader emoji="📱" title="Your online presence" sub="We'll connect everything so it all works together seamlessly." />
+          <div className="field">
+            <label className="field-label">Facebook page URL</label>
+            <input className="input" placeholder="https://facebook.com/yourbakery" value={form.facebook} onChange={e => set("facebook", e.target.value)} />
+          </div>
+          <div className="field">
+            <label className="field-label">Instagram handle</label>
+            <div style={{ position: "relative" }}>
+              <span style={{ position: "absolute", left: 16, top: "50%", transform: "translateY(-50%)", color: "#9ca3af", fontSize: 15, pointerEvents: "none" }}>@</span>
+              <input className="input" style={{ paddingLeft: 36 }} placeholder="yourbakery" value={form.instagram} onChange={e => set("instagram", e.target.value)} />
+            </div>
+          </div>
+          <div className="field">
+            <label className="field-label">Existing website? (if any)</label>
+            <input className="input" placeholder="https://..." value={form.existingWebsite} onChange={e => set("existingWebsite", e.target.value)} />
+          </div>
+          <div className="field">
+            <label className="field-label">Do you already have a Google Business profile?</label>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+              {["Yes, I have one", "No, but I want one", "Not sure what that is"].map(opt => (
+                <button key={opt} className={`chip${form.googleBusiness === opt ? " selected" : ""}`} onClick={() => set("googleBusiness", opt)}>{opt}</button>
+              ))}
+            </div>
+          </div>
+          <Nav onNext={onNext} onPrev={onPrev} />
+        </div>
+      );
+    }
+
+    /* ── GOALS ── */
+    function Goals({ form, set, onNext, onPrev }) {
+      return (
+        <div className="wrap fade-up">
+          <SectionHeader emoji="🎯" title="What matters most?" sub="What's the single biggest thing you want your website to do for you?" />
+          <div className="grid-2" style={{ marginBottom: 8 }}>
+            {goals.map(g => (
+              <div key={g.id} className={`card${form.primaryGoal === g.id ? " selected" : ""}`}
+                style={{ textAlign: "center", padding: "20px 16px" }} onClick={() => set("primaryGoal", g.id)}>
+                <div style={{ fontSize: 30, marginBottom: 10 }}>{g.icon}</div>
+                <div style={{ fontWeight: 500, fontSize: 14 }}>{g.label}</div>
+              </div>
+            ))}
+          </div>
+          <Nav onNext={onNext} onPrev={onPrev} />
+        </div>
+      );
+    }
+
+    /* ── ADD-ONS ── */
+    function Addons({ form, toggle, onNext, onPrev }) {
+      return (
+        <div className="wrap fade-up">
+          <SectionHeader emoji="🌟" title="Anything catch your eye?" sub="No pressure at all — just check anything that sounds interesting. We'll chat about it later." />
+          <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 8 }}>
+            {addons.map(a => {
+              const sel = form.addonsInterest.includes(a.id);
+              return (
+                <div key={a.id} className={`card${sel ? " selected" : ""}`}
+                  style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
+                  onClick={() => toggle("addonsInterest", a.id)}>
+                  <div>
+                    <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 3 }}>{a.label}</div>
+                    <div style={{ fontSize: 13, color: "#6b7280" }}>{a.desc}</div>
+                  </div>
+                  <div style={{ textAlign: "right", flexShrink: 0, marginLeft: 16 }}>
+                    <div style={{ fontSize: 13, fontWeight: 600, color: sel ? "#C2185B" : "#9ca3af" }}>{a.price}</div>
+                    {sel && <div style={{ fontSize: 12, color: "#C2185B", marginTop: 2 }}>✓ Noted!</div>}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <Nav onNext={onNext} onPrev={onPrev} />
+        </div>
+      );
+    }
+
+    /* ── FINAL ── */
+    function Final({ form, set, onPrev, onSubmit, submitting }) {
+      const updateSite = (i, v) => {
+        const sites = [...form.inspirationSites];
+        sites[i] = v;
+        set("inspirationSites", sites);
+      };
+      return (
+        <div className="wrap fade-up">
+          <SectionHeader emoji="💬" title="Almost done!" sub="A few last things and then we're all set!" />
+          <div className="field">
+            <label className="field-label">Any websites you love the look of? (up to 3 — totally optional)</label>
+            {form.inspirationSites.map((url, i) => (
+              <input key={i} className="input" style={{ marginBottom: 10 }}
+                placeholder={`Inspiration site ${i + 1} — https://...`}
+                value={url} onChange={e => updateSite(i, e.target.value)} />
+            ))}
+          </div>
+          <div className="field">
+            <label className="field-label">Anything else you'd like us to know? No detail is too small 🍰</label>
+            <textarea className="textarea" placeholder="Questions, concerns, dreams, random thoughts — all welcome!"
+              value={form.anythingElse} onChange={e => set("anythingElse", e.target.value)} />
+          </div>
+          <div className="notice">
+            <p><strong>You're almost there!</strong> Once you submit, we'll review everything carefully and be in touch within <strong>1 business day</strong>. We can't wait to bring Laureen Bakes to life! 🎉</p>
+          </div>
+          <div className="nav">
+            <button className="btn-secondary" onClick={onPrev}>← Back</button>
+            <button className="btn-primary" style={{ padding: "15px 36px", fontSize: 16 }}
+              onClick={onSubmit} disabled={submitting}>
+              {submitting ? "Sending… 🍪" : "Submit — let's do this! 🚀"}
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    /* ── THANK YOU ── */
+    function ThankYou() {
+      return (
+        <div className="wrap welcome fade-up" style={{ paddingTop: 120 }}>
+          <div style={{ fontSize: 64, marginBottom: 24 }}>🎉</div>
+          <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 42, fontWeight: 400, color: "#1a1a1a", marginBottom: 16, lineHeight: 1.1 }}>
+            You did it, Laureen!
+          </h1>
+          <p style={{ fontSize: 18, color: "#6b7280", lineHeight: 1.7, marginBottom: 12 }}>
+            Your responses are on their way to us right now.
+          </p>
+          <p style={{ fontSize: 16, color: "#6b7280", lineHeight: 1.7, maxWidth: 440, margin: "0 auto 44px" }}>
+            We'll review everything and be in touch within <strong style={{ color: "#1a1a1a" }}>1 business day</strong>. If you think of anything else in the meantime, just shoot us an email.
+          </p>
+          <a href="mailto:marketing@altxmedia.com"
+            style={{ display: "inline-block", background: "#C2185B", color: "#fff", borderRadius: 12, padding: "14px 36px", fontSize: 15, fontWeight: 600, textDecoration: "none" }}>
+            Email us anytime
+          </a>
+          <p style={{ marginTop: 28, fontSize: 13, color: "#9ca3af" }}>
+            AltX Media INC · 426, 44 St E, Saskatoon · marketing@altxmedia.com
+          </p>
+        </div>
+      );
+    }
+
+    /* ── HELPERS ── */
+    function SectionHeader({ emoji, title, sub }) {
+      return (
+        <div style={{ marginBottom: 32 }}>
+          {emoji && <div className="section-emoji">{emoji}</div>}
+          <h2 className="section-title">{title}</h2>
+          {sub && <p className="section-sub">{sub}</p>}
+        </div>
+      );
+    }
+
+    function Nav({ onNext, onPrev }) {
+      return (
+        <div className="nav">
+          <button className="btn-secondary" onClick={onPrev}>← Back</button>
+          <button className="btn-primary" onClick={onNext}>Continue →</button>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>

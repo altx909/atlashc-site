@@ -1180,8 +1180,12 @@
   // Don't show if already dismissed or installed
   // once per browser session, across all pages
   try { if (sessionStorage.getItem('atlashc_pwa_shown')) return; } catch (e) {}
-  if (window.matchMedia('(display-mode: standalone)').matches) return;
-  if (window.navigator.standalone === true) return;
+  // Opened as the installed app: remember it, so this browser never shows the popup again
+  if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+    try { localStorage.setItem('atlashc_pwa_installed', '1'); } catch (e) {}
+    return;
+  }
+  try { if (localStorage.getItem('atlashc_pwa_installed')) return; } catch (e) {}
 
   const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
   const isAndroid = /Android/.test(navigator.userAgent);
@@ -1207,7 +1211,7 @@
 
     if (isIOS && isSafari) {
       iosEl.style.display = 'block';
-    } else if (isAndroid) {
+    } else if (isAndroid && deferredPrompt) { // Chrome skips beforeinstallprompt when the app is already installed
       androidEl.style.display = 'block';
     } else {
       return; // don't show for unsupported browsers
@@ -1217,6 +1221,7 @@
     sheet.style.display = 'block';
     try { sessionStorage.setItem('atlashc_pwa_shown', '1'); } catch (e) {}
     document.body.style.overflow = 'hidden';
+    return true;
   }
 
   function dismiss() {
@@ -1249,6 +1254,7 @@
 
   // Track: confirmed install
   window.addEventListener('appinstalled', function() {
+    try { localStorage.setItem('atlashc_pwa_installed', '1'); } catch (e) {}
     trackPWA('pwa_installed', { device: isIOS ? 'ios' : 'android', page: window.location.pathname });
   });
 
@@ -1272,7 +1278,7 @@
 
   // Show after delay + track prompt shown
   setTimeout(function() {
-    showSheet();
+    if (!showSheet()) return;
     trackPWA('pwa_prompt_shown', {
       device: isIOS ? 'ios' : 'android',
       page: window.location.pathname,

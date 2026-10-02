@@ -1698,7 +1698,8 @@
   const DELAY_MS = 10000; // show after 10 seconds
 
   // Don't show if already dismissed or installed
-  // show every visit
+  // once per browser session, across all pages
+  try { if (sessionStorage.getItem('atlashc_pwa_shown')) return; } catch (e) {}
   if (window.matchMedia('(display-mode: standalone)').matches) return;
   if (window.navigator.standalone === true) return;
 
@@ -1734,6 +1735,7 @@
 
     overlay.style.display = 'block';
     sheet.style.display = 'block';
+    try { sessionStorage.setItem('atlashc_pwa_shown', '1'); } catch (e) {}
     document.body.style.overflow = 'hidden';
   }
 
